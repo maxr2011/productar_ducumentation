@@ -1,0 +1,15 @@
+de.nimoo.productar
+de.nimoo.productar.Application
+de.nimoo.productar.activities
+de.nimoo.productar.adapter
+de.nimoo.productar.arcore
+de.nimoo.productar.background
+de.nimoo.productar.database
+de.nimoo.productar.exceptions
+de.nimoo.productar.fragments
+de.nimoo.productar.helper
+de.nimoo.productar.interfaces
+de.nimoo.productar.network
+de.nimoo.productar.notifications
+de.nimoo.productar.objects
+de.nimoo.productar.remote_database_retrofit
