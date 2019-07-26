@@ -4,9 +4,13 @@
 \usepackage{color}
 \usepackage{xcolor}
 
+\usepackage{graphics}           % Add pictures to the document
+\usepackage{graphicx}           % Add pictures to the document
+\usepackage{subfigure}          % 2 pictures side by side
+
 \title{Dokumentation ProductAR}
 \author{Maximilian Rehberger}
-\date{June 2019}
+\date{\today}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
@@ -18,6 +22,8 @@
 \addtokomafont{section}{\color{darkcerulean}}
 \addtokomafont{subsection}{\color{frenchblue}}
 \addtokomafont{subsubsection}{\color{babyblueeyes}}
+
+\graphicspath{ {./img/} }                % Path to images
 
 \begin{document}
 
@@ -38,6 +44,7 @@
 
 \subsection{Zweck}
 
+Produkte können zum Beispiel beim Einkaufen mit dem Smartphone gescannt werden und erkannt werden. Informationen werden angezeigt wie zum Beispiel Bilder oder ein Preisvergleich. Mithilfe der App soll man einen Barcode einscannen können und Informationen zu den Produkten erhalten. Weiterhin kann der Nutzer ein Produkt in Augmented Reality (AR) testen und sieht somit wie es in Wirklichkeit aussehen wird, wenn er es kaufen würden.
 
 \newpage
 
@@ -45,11 +52,20 @@
 
 \subsection{Beschreibung Ausgangssituation}
 
+Es gibt bereits viele Shopping-Apps wie zum Beispiel Ikea, H\&M oder S'Oliver. Das Problem ist, dass jeder am Ende für jedes Geschäft eine eigene App auf dem Smartphone hat. Diese App soll die Möglichkeiten geben mehrere unterschiedliche Produkte in einer App zu speichern und zu verwalten. Also eine App für alle Produkte.
+
 \subsection{Produkteinsatz}
+
+ Die App kann zum Beispiel als Einkaufsliste oder Wunschliste für Produkte eingesetzt werden.
+ Darüber hinaus bieten sich noch viele weitere Möglichkeiten.
 
 \subsection{Produktumfeld}
 
+Die App wird hauptsächlich im privaten Umfeld umgesetzt, beim Einkaufen in Geschäften oder Online-Einkauf.
+
 \subsection{Produktfunktionalität}
+
+Scannen von Produkten, Informationen zu Produkten, Preisvergleich, Bilder hochladen für Produkte, Produkte in AR testen.
 
 \subsection{Personas}
 
@@ -65,6 +81,20 @@
 \section{Architekturkonzept und Entwurf}
 
 \subsection{Ursprüngliches Architekturkonzept}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=380px]{img/Architekturkonzept.png}
+\caption{Ursprüngliches Architekturkonzept}
+\end{figure}
+
+\subsection{Aktualisiertes Architekturkonzept}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=380px]{img/ArchitekturkonzeptNew.png}
+\caption{Aktualisiertes Architekturkonzept}
+\end{figure}
 
 \subsection{Anfängliche Skizze Datenbankentwurf}
 
@@ -113,6 +143,14 @@ todo: erzeugen
 \subsection{Android Manifest}
 
 \subsection{Java Interfaces}
+
+\subsubsection{ObjectInterface}
+
+\subsubsection{ScanResultReceiver}
+
+\subsubsection{IRetrofitCRUD}
+
+\subsubsection{JsonPlaceHolderApi}
 
 \subsection{Java Klassen}
 
@@ -206,13 +244,13 @@ todo: erzeugen
 
 \paragraph{CustomArFragment}
 
-\subsection{Retrofit Schnittstelle}
+\subsubsection{Retrofit Schnittstelle}
 
-\subsection{Network Monitor}
+\subsubsection{Network Monitor}
 
-\subsection{Background Service}
+\subsubsection{Background Service}
 
-\subsection{Notifications}
+\subsubsection{Notifications}
 
 \subsection{Ressourcen}
 
@@ -256,7 +294,7 @@ todo: erzeugen
 
 \newpage
 
-\section{Verwendete Frameworks und Software}
+\section{Verwendete Technologie, Frameworks und Software}
 
 
 \newpage
