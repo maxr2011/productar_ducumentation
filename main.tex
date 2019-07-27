@@ -1233,8 +1233,142 @@ Die Klasse "SendNotification" ist eine Hilfsklasse zum versenden von Benachricht
 
 \subsubsection{Values}
 
+\newpage
+
 \subsection{Rest Api}
-Im Folgenden werden alle Möglichkeiten der Rest Schnittstelle noch einmal dokumentiert.
+Im Folgenden werden alle Möglichkeiten der Rest Schnittstelle noch einmal dokumentiert. Es werden keine Klassen oder Methoden beschrieben sondern der Pfad welcher auf dem Webserver existiert.
+
+\subsubsection{Pfad ../}
+
+Auf diesem Pfad befindet sich die Datenschutzerklärung der App (index.php), welche für einen Eintrag im Google Play Store erforderlich ist.
+
+\subsubsection{Pfad ../products/}
+
+\paragraph{Hauptpfad}
+
+Auf dem Hauptpfad befindet sich eine index.php \newline 
+
+\noindent\textbf{GET: Keine Parameter}
+ 
+\noindent Alle Produkte werden im JSON Format ausgegeben. \newline 
+
+\noindent\textbf{GET: ?productid=1}
+
+\noindent Das Produkt mit der Id "1" wird im JSON Format ausgegeben. \newline 
+
+\noindent\textbf{GET: ?barcode=1234567890128}
+
+\noindent Das Produkt mit dem Barcode "1234567890128" wird im JSON Format ausgegeben. \newline 
+
+\noindent \textbf{GET: ?search=banan}
+
+\noindent Produkte welche die Zeichenkette "banan" im Namen oder im Barcode enthalten werden im JSON Format ausgegben. Dabei spielt die Groß- und Kleinschreibung keine Rolle. \newline
+
+\noindent \textbf{POST: Parameter: name, barcode, image, barcode, loginusername, loginpassword}
+
+\noindent Ein Produkt wird auf dem Server gespeichert, wenn es noch nicht vorhanden ist. Ist es bereits vorhanden, so wird nur eine Produkt-Nutzer Referenz hinzugefügt. \newline
+
+\noindent \textbf{POST: scancount, scanbarcode, scanusername, scanpasswd}
+
+\noindent Die Anzahl an Scans werden für einen Nutzer aktualisiert.
+
+\paragraph{Unterpfad ../products/images/}
+Auf diesem Pfad befindet sich eine index.php. \newline 
+
+\noindent \textbf{POST: product\_title\_img, product\_title\_img\_barcode, \newline  product\_title\_img\_username, product\_title\_img\_password}
+
+\noindent Ein neues Produktbild wird auf den Server hochgeladen.
+
+\newpage
+
+\paragraph{Unterpfad ../products/photos/}
+Auf diesem Pfad befindet sich eine index.php. \newline 
+
+\noindent \textbf{GET: Keine Parameter}
+
+\noindent Alle Fotos zu den Produkten werden im JSON Format ausgegeben, beginnend mit dem neuesten. \newline 
+
+\noindent \textbf{GET: ?barcode=1234567890128}
+
+\noindent Alle Fotos zu dem Produkt mit dem Barcode "1234567890128" werden im JSON Format ausgegeben, beginnend mit dem neuesten. \newline 
+
+\noindent \textbf{POST: product\_img, product\_img\_barcode, \newline product\_img\_username, product\_img\_password}
+
+\noindent Nutzer welche eingeloggt sind können neue Fotos zu einem Produkt hochladen. \newline
+
+\noindent \textbf{POST: delete\_img\_url, delete\_img\_username, delete\_img\_password}
+
+\noindent Nutzer welche eingeloggt sind können Ihre hochgeladenen Fotos zu einem Produkt wieder löschen.
+
+\paragraph{Unterpfad ../products/prices/}
+
+Auf diesem Pfad befindet sich eine index.php. \newline 
+
+\noindent \textbf{GET: ?barcode\_latest\_price=1234567890128}
+
+\noindent Der letzte Preis zu dem Produkt mit dem Barcode "1234567890128" wird abgefragt und im JSON Format zurückgegeben. \newline 
+
+\noindent \textbf{GET: ?barcode\_cheapest\_price=1234567890128}
+
+\noindent Der günstigste Preis zu dem Produkt mit dem Barcode "1234567890128" wird abgefragt und im JSON Format zurückgeben. \newline 
+
+\noindent \textbf{GET: ?barcode\_prices=1234567890128}
+
+\noindent Alle Preise zu dem Produkt mit dem Barcode "1234567890128" werden abgefragt und im JSON Format zurückgegeben. \newline 
+
+\noindent \textbf{GET: ?price\_shop\_id=5}
+
+\noindent Gibt den Shop mit der Id "5" im JSON Format aus. \newline
+
+\noindent \textbf{GET: ?price\_shop\_barcode=1234567890128}
+
+\noindent Gibt alle verfügbaren Shops für den Barcode "1234567890128" im JSON Format zurück. \newline
+
+\noindent \textbf{GET: ?price\_deal\_barcode=1234567890128\&price\_deal\_percentage=0.5}
+
+\noindent Gibt an ob das Produkt (mit dem Barcode "1234567890128") gerade im Sonderangebot ist (0.5 bedeutet 50\% Rabatt). Hierbei wird der aktuelle Preis mit dem ursprünglichen UVP verglichen. Wenn das Produkt im Angebot ist wird "Special Deal!" ausgegeben, ansonsten "No Special Deal!". \newline
+
+\noindent \textbf{POST: Parameter: price\_barcode, price\_value, price\_currency, price\_shop}
+
+\noindent Ein neuer Preis wird für das Produkt mit dem Barcode "1234567890128" in die Datenbank geschrieben.
+
+\paragraph{Unterpfad ../products/ratings/}
+Auf diesem Pfad befindet sich eine index.php.
+
+\subsubsection{Pfad ../users/}
+
+\paragraph{Hauptpfad} 
+Auf dem Hauptpfad befindet sich eine index.php \newline 
+
+\noindent \textbf{GET: ?username=test\&password=e10adc3949ba59abbe56e057f20f883e}
+
+\noindent Es wird geprüft ob die Anmeldedaten (Benutzer: "test", Passwort: MD5("123456")) mit den Informationen in der Datenbank übereinstimmen. Wenn Ja, dann wird die Nachricht "Successfully logged in!" ausgegeben, ansonsten die Nachricht "Login failed! Username or Password incorrect!". \newline
+
+\noindent \textbf{GET: ?username=test\&password=e10adc3949ba59abbe56e057f20f883e\&profile=profile}
+Wenn die Informationen für den Login stimmen, dann wird das Nutzerprofil im JSON Format zurückgegeben. \newline
+
+\noindent \textbf{POST: username, email, password}
+
+\noindent Ein neuer Benutzer wird registriert. \newline 
+
+\paragraph{Unterpfad ../users/images/}
+
+Auf diesem Pfad befindet sich eine index.php. \newline 
+
+\noindent \textbf{POST: profile\_img, profile\_img\_username, profile\_img\_password}
+
+\noindent Ein neues Profilbild für einen Nutzer wird hochgeladen.
+
+
+\subsubsection{Pfad ../models/}
+
+\paragraph{Hautpfad}
+ 
+Auf dem Hauptpfad befindet sich eine index.php \newline 
+
+\noindent \textbf{GET: ?productid=1}
+
+\noindent  Das Model für das Produkt mit der Id "1" wird im JSON Format zurückgegben.
 
 \newpage
 
