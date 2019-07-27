@@ -1160,13 +1160,62 @@ Die Hilfsklasse "UploadHelper" enthält alle wichtigen Variablen für den Upload
 \paragraph{PriceHelper}
 Die Hilfsklasse "PriceHelper" enthält alle wichtigen Variablen und Methoden für den Preis eines Produktes. \newline
 
+\newpage
+
 \subsubsection{Retrofit Schnittstelle}
 
+Die Klasse "RetrofitCRUD" stellt die Methoden für Retrofit zur Verfügung und ist die Schnittstelle zum Backend Server. \newline 
+
+\noindent\textbf{Im Folgenden eine Übersicht der Methoden:}
+
+\noindent
+
+% todo: Übersicht der Methoden als Bild %
+
 \subsubsection{Network Monitor}
+Die Klasse "NetworkMonitor" überwacht die Netzwerkaktivität. Bei entsprechenden Änderungen werden Aktionen ausgeführt. \newline
+
+\noindent\textbf{Methode onReceive(android.content.Context context,\newline               android.content.Intent intent)}
+
+\noindent Die Methode "onReceive" wird aufgerufen wenn sich der Netzwerkstatus geändert hat. \newline 
+
+\noindent\textbf{Methode checkNetworkConnection(android.content.Context context)}
+
+\noindent Die Methode "checkNetworkConnection" überprüft ob eine Internetverbindung besteht. \newline 
+
+\noindent\textbf{Methode syncData(android.content.Context context)}
+
+\noindent Die Methode "syncData" synchronisiert die erstellten Produkte mit der Datenbank auf dem Server. \newline 
+
+\noindent\textbf{Methode syncScanCount(android.content.Context context,\newline            java.lang.String syncedBarcode, int scanCount)}
+
+\noindent Die Methode "syncScanCount" synchronisiert die Anzahl der Scans. \newline
+
+\noindent\textbf{Methode syncNewProductImage(android.content.Context \_\_context, \newline   java.lang.String uploadBarcode, java.lang.String imageUrlPath)}
+
+\noindent Die Methode "syncNewProductImage" synchronisiert das Bild des Produkts. \newline 
 
 \subsubsection{Background Service}
+Die Klasse "ProductDealJobService" ist ein JobService für Benachrichtungen zu aktuellen Deals für Produkte. \newline 
+
+\noindent\textbf{Methode onStartJob(android.app.job.JobParameters params)}
+
+\noindent Die Methode "onStartJob" wird beim ausführen des Jobs ausgeführt. \newline 
+
+\noindent\textbf{Methode onStopJob(android.app.job.JobParameters params)}
+
+\noindent Die Methode "onStopJob" wird ausgeführt wenn der Job abgebrochen wurde. \newline 
+
+\noindent\textbf{Methode doBackgroundWork(android.app.job.JobParameters params))}
+
+\noindent Die Methode "doBackgroundWork" fragt beim Server an ob es für die auf dem Smartphone gespeicherten Produkte Sonderangebote gibt. Bei einem Sonderangebot werden entsprechende Push Benachrichtungen angezeigt. \newline 
 
 \subsubsection{Notifications}
+Die Klasse "SendNotification" ist eine Hilfsklasse zum versenden von Benachrichtigungen. \newline 
+
+\noindent\textbf{Methode sendDealPushNotification(java.lang.String title, \newline         java.lang.String notificationMessage,                                    android.content.Intent startIntent)}
+
+\noindent Die Methode "sendDealNotification" sendet eine Benachrichtigung für ein Produkt mit einem Sonderangebot. \newline 
 
 \subsection{Ressourcen}
 
@@ -1185,7 +1234,7 @@ Die Hilfsklasse "PriceHelper" enthält alle wichtigen Variablen und Methoden fü
 \subsubsection{Values}
 
 \subsection{Rest Api}
-
+Im Folgenden werden alle Möglichkeiten der Rest Schnittstelle noch einmal dokumentiert.
 
 \newpage
 
