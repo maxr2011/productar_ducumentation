@@ -611,22 +611,257 @@ Die Klasse "CreateProductActivity" ist dazu da um ein neues Produkt zu erstellen
 \noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
 
 \paragraph{ProductPhotoGalleryActivity}
+Die Klasse "ProductPhotoGalleryActivity" ist die Fotogallerie, welche die Fotos für ein Produkt in einer GridView anzeigt. \newline 
 
-\paragraph{ProductPhotoDetailActivity}
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Start der Activity ausgeführt. Es werden Werte initialisiert, wie zum Beispiel eine GridView. Als erstes erhält man den Barcode des Produkts, für welches man die Bilder abfragen möchte. Die Ladeanimation wird gestartet (loadingStart()). Als nächstes werden die Produktfotos vom Server abgefragt. Dazu wird der Barcode an die Methode "getProductPhotosByBarcode" übergeben Wenn die Anfrage erfolgreich war, dann werden die Fotos in einer Liste gespeichert. Es wird ein PhotoAdapter initialisiert und die Liste wird diesem übergeben. Anschließend wird für die GridView der Adapter gesetzt. Es wird noch ein OnItemClickListener für jedes Element in der GridView gesetzt, mit dem man dann auf die ProductPhotoDetailActivity weitergeleitet wird. Hierfür wird der Barcode und die Ressource URL des Fotos mit übergeben. In jedem Fall wird die Ladeanimation anschließend wieder beendet. \newline 
+
+\noindent\textbf{Methode loadingStart()}
+
+\noindent Die Methode "loadingStart" startet die Ladeanimation. \newline
+
+\noindent\textbf{Methode loadingEnd()}
+
+\noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
+
+\paragraph{ProductPhotoDetailActivity} 
+Die Klasse "ProductPhotoDetailActivity" zeigt ein Produktfoto in voller Größe an. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Der Barcode und die Ressource URL wird aus den Intent Extras abgefragt. Das Foto wird in die ImageView geladen. Es werden noch Buttons zum Teilen und Herunterladen des Bildes hinzugefügt. Wurde das Bild vom Nutzer selbst erstellt, dann wird ein zusätzlicher Button zum löschen des Bildes hinzugefügt. \newline
+
+\noindent\textbf{Methode shareBtnAddListener()}
+
+\noindent Die Methode "shareBtnAddListener" fügt einen OnClickListener für den Button "sharePhotoBtn" hinzu. Es wird ein Dateiname für das zu teilende Bild erzeugt. Als nächstes wird ein Intent (ACTION\_SEND) erstellt, welcher die URI des Bildes erhält. Zuvor wird das Bild jedoch lokal gespeichert, damit es geteilt werden kann. Als Type wird ("image/*") gesetzt. Zum Schluss wird der Intent gestartet. \newline 
+
+\noindent\textbf{Methode downloadBtnAddListener()}
+
+\noindent Die Methode "downloadBtnAddListener" fügt einen OnClickListener für den Button "downloadPhotoButton" hinzu. Mithilfe der Methode "saveImageBitmapUsingPicasso" wird das Bild lokal auf dem Gerät gesichert. \newline 
+
+\noindent\textbf{Methode deleteBtnAddListener()}
+
+\noindent Die Methode "deleteBtnAddListener" fügt einen OnClickListener für den Button "deletePhotoButton" hinzu. Über die Methode "deletePhoto" wird eine Anfrage an den Server geschickt mit der URL des Fotos und den Login Informationen. Ist die Anfrage erfolgreich, so wurde das Foto gelöscht und der Nutzer wird zurück zur Foto Galerie geleitet. \newline
+
+\noindent\textbf{Methode galleryAddPic(java.lang.String saveFileName)}
+
+\noindent Die Methode "galleryAddPic" fügt das Bild der Fotogalerie auf dem Gerät hinzu. \newline
+
+\noindent\textbf{Methode saveImage(android.graphics.Bitmap image, java.lang.String fileName)}
+
+\noindent Die Methode "saveImage" speicher das Bild lokal auf dem Gerät. \newline
+
+\newpage
 
 \paragraph{CreatePriceActivity}
+Die Klasse "CreatePriceActivity" ist dazu da, dass der Nutzer einen Preis für das Produkt erstellen kann. Der Nutzer kann angeben, wie viel ein Produkt kostet, um welche Währung es sich handelt und bei welchen Geschäft er es entdeckt hat. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Es werden Werte initialisiert, zum Beispiel TextViews. Der Barcode wird aus den Intent Extras abgefragt. \newline
+
+\noindent\textbf{Methode fillSpinnerWithCurrencyData()}
+
+\noindent Die Methode "fillSpinnerWithCurrencyData" fügt die Währungen in ein Dropdown Menü ein. Die Namen der Währungen werden zuerst in einem String Array gespeichert. Der "currencyString" erhält zunächst den Wert des ersten Elements des Arrays. Es wird ein neuer ArrayAdapter initialisiert, welchem das String Array übergeben wird. Der Array Adapter wird anschließend für den "currencySpinner" gesetzt. Zuletzt wird ein onItemSelectedListener gesetzt, welcher den Wert für den "currencyString" dem gerade ausgewählten Wert setzt. \newline
+
+\noindent\textbf{Methode fillSpinnerWithStoreData()}
+
+\noindent Die Methode "fillSpinnerWithStoreData" fügt die Geschäfte in ein Dropdown Menü ein. Es wird zunächst eine Anfrage an den Server gestellt, welche alle Möglichen Geschäfte zu einem Produkt abfrägt. Wenn die Anfrage erfolgreich war, dann bekommt man als Antwort eine Liste an Shops. Als nächstes wird das Dropdown Menü für die Shops erstmal sichtbar gemacht. Alle Shopnamen werden dann in ein String Array gespeichert. Der "storeString" erhält zunächst den Wert des ersten Elements des String Arrays. Als nächstes wird ein ArrayAdapter initialisiert, welcher die Shopnamen erhält. Der Array Adapter wird anschließend für den "storeSpinner" gesetzt. Zuletzt wird ein OnItemSelectedListener gesetzt, welcher den Wert für den "storeString" dem gerade ausgewählten Wert setzt. \newline
+
+\noindent\textbf{Methode validatePrice()}
+
+\noindent Die Methode "validatePrice" validiert den Preis Als Kriterium muss dieser erfüllen: - Der Preis darf nicht leer sein - Der Preis darf eine Länge von 8 Zeichen nicht überschreiten \newline 
+
+\noindent\textbf{Methode validateStore()}
+
+\noindent Die Methode "validateStore" validiert das eingegebene Geschäft. Als Kriterium muss dieses erfüllen: - Geschäft darf nicht leer sein. - Name des Geschäfts darf nicht länger als 50 Zeichen sein. \newline 
+
+\noindent\textbf{Methode validateStoreString()}
+
+\noindent Die Methode "validateStoreString" validiert den String, welcher durch das Dropdown Menü ausgewählt wurde. Als Kriterium muss dieser erfüllen: - Der "storeString" darf nicht leer sein. \newline 
+
+\noindent\textbf{Methode confirmPrice(android.view.View v)}
+
+\noindent Die Methode "confirmPrice" überprüft ob alle Nutzereingaben zum Preis auch valide sind. Wenn der "storeString" nicht valide ist und entweder der Preis oder das Geschäft invalide sind, dann wird die Methode zurückgegeben. Wenn der Wert des EditText Feldes für den Store leer ist, dann wird zunächst überprüft ob der Preis valide ist. Ist der Preis invalide wird die Methode zurückgegeben. Weiterhin wird überprüft, ob der "storeString" valide ist. Ist dieser ebenfalls invalide, so wird die Methode zurückgegeben, ansonsten wird dieser weiterverwendet. Nun wird die Ladeanimation gestartet (loadingStart()) Zum Schluss wird die Methode "createPriceAndReturnToDetailActivity" ausgeführt. \newline 
+
+\noindent\textbf{Methode createPriceAndReturnToDetailActivity(java.lang.String price, \newline java.lang.String currency,                                                java.lang.String store)}
+
+\noindent Die Methode "createPriceAndReturnToDetailActivity" sendet die Preisinformationen an den Server und leitet den Nutzer zurück zur "ProductDetailActivity" Zunächst werden alle wichtigen Informationen in eine Map gespeichert: - Barcode - Preis - Währung - Geschäft Als nächstes wird die Map an die Methode "createPriceForProduct" weitergegeben, welche die Anfrage an den Server schickt. Ist die Anfrage fehlgeschlagen, dann wird eine aussagekräftige Toast Nachricht erzeugt. Wenn die Anfrage erfolgreich gewesen ist, dann wird der Nutzer zurück zur "ProductDetailActivity" geleitet, welcher der Barcode übergeben wird. In jedem Fall wird die Ladeanimation wieder beendet (loadingEnd()) \newline 
+
+\noindent\textbf{Methode loadingStart()}
+
+\noindent Die Methode "loadingStart" startet die Ladeanimation. \newline
+
+\noindent\textbf{Methode loadingEnd()}
+
+\noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
 
 \paragraph{PriceHistoryActivity}
+Die Klasse "PriceHistoryActivity" zeigt dem Nutzer den Preisverlauf des Produkts an. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Es werden Werte initialisiert, wie zum Beispiel eine GraphView. Zuerst wird die Ladeanimation gestartet. Als nächstes wird der Barcode aus den Intent Extras abgefragt. Dieser wird der Methode "getProductPrices" übergeben, welche eine Anfrage an den Server schickt. Wenn die Anfrage erfolgreich war, dann wird eine Liste von Preisen als Antwort vom Server zurückgegeben. Wenn diese nicht "null" ist (nullCheck()), nicht leer ist und mindestens 2 Elemente beinhaltet, dann wir eine LineGraphSeries initialisiert, welcher Werte (Datenpunkte (x,y)) hinzugefügt werden können. Die Preise werden mit aufsteigenden x-Werten je einem y-Wert zugeordnet. Nun muss die maximale Anzahl an Datenpunkten für die x-Achse noch einmal manuel gesetzt werden. Anschließend wird die LineGraphSeries dem "priceHistoryGraph" hinzugefügt. Somit werden alle Werte in Form eines einfachen Graphes visualisiert. In jedem Fall wird die Ladeanimation wieder beendet (loadingEnd()) \newline
+
+\noindent\textbf{Methode loadingStart()}
+
+\noindent Die Methode "loadingStart" startet die Ladeanimation. \newline
+
+\noindent\textbf{Methode loadingEnd()}
+
+\noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
 
 \paragraph{RegisterActivity}
+Die Klasse "RegisterActivity" ist dafür da, dass sich Nutzer ein Konto anlegen können um sich dann später in der App einloggen zu können. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Start der Activity ausgeführt. Es werden Werte initialisiert: TextInputLayout: - Email - Nutzername - Passwort - Passwort wiederholen \newline 
+
+\noindent\textbf{Methode validateEmail()}
+ 
+\noindent Die Methode "validateEmail" validiert die E-Mail Adresse. Als Kriterium muss diese erfüllen: - E-Mail Adresse darf nicht leer sein - E-Mail Adresse muss @-Zeichen enthalten \newline 
+
+\noindent\textbf{Methode validateUsername()}
+ 
+\noindent Die Methode "validateUsername" validiert den Benutzernamen. Als Kriterium muss dieser erfüllen: - Benutzername darf nicht leer sein - Benutzername darf nicht länger als 25 Zeichen sein \newline 
+
+\noindent\textbf{Methode validatePassword()}
+ 
+\noindent Die Methode "validatePassword" validiert das Passwort. Als Kriterium muss dieses erfüllen: - Passwort darf nicht leer sein. \newline
+
+\noindent\textbf{Methode validateRepeatPassword()}
+ 
+\noindent Die Methode "validateRepeatPassword" validiert das vom Nutzer doppelt eingegebene Passwort. Als Kriterium muss dieses erfüllen: - Doppeltes Passwort darf nicht leer sein - Doppeltes Passwort muss dem Passwort entsprechen \newline 
+
+\noindent\textbf{Methode confirmInput(android.view.View v)}
+ 
+\noindent Diese Methode überprüft alle Eingaben des Nutzers und wird zurückgegeben, wenn eine Eingabe invalide sein sollte. Sind alle Eingaben valide, wird die Methode "createUser" ausgeführt. \newline 
+
+\noindent\textbf{Methode createUser()}
+ 
+\noindent Die Methode "createUser" legt ein Nutzerkonto auf dem Server an. Dass Passwort wird vorher mit MD5 verschlüsselt. Die Werte E-Mail, Nutzername und Passwort werden in eine Map übertragen, welche an die Methode "createUser" übergeben wird. Diese stellt nun die Anfrage an den Server. Ist die Anfrage erfolgreich, so wird eine aussagekräftige Toast Nachricht erzeugt. In jedem Fall wird die Methode "clearTextFields" aufgerufen. \newline 
+
+\noindent\textbf{Methode clearTextFields()}
+ 
+\noindent Die Methode "clearTextFields" löscht alle Nutzereingaben aus den Textfeldern. \newline
+
+
 
 \paragraph{LoginActivity}
+Die Klasse "LoginActivity" stellt einen "Anmeldebildschirm" zur verfügung. Sie ist dazu da, dass sich der Nutzer mit seinem Konto in der App anmelden kann. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Es werden Werte initialisiert für die Felder Nutzername, Password sowie eine CheckBox. Weiterhin wird ein Button für die Registrierung eines Kontos hinzugefügt. \newline 
+
+\noindent\textbf{Methode addRegisterButton()}
+
+\noindent Die Methode "addRegisterButton" fügt einen OnClickListener für den Button "register\_button" hinzu. Es wird ein Intent erstellt, welcher den Nutzer auf die RegisterActivity weiterleitet. \newline
+
+\noindent\textbf{Methode validateUsername()}
+
+\noindent Die Methode "validateUsername" validiert den Benutzernamen. Als Kriterium muss dieser erfüllen: - Benutzername darf nicht leer sein - Benutzername darf nicht länger als 25 Zeichen sein \newline 
+
+\noindent\textbf{Methode validatePassword()}
+
+\noindent Die Methode "validatePassword" validiert das Passwort Als Kriterium muss dieses erfüllen: - Das Passwort darf nicht leer sein. \newline 
+
+\noindent\textbf{Methode confirmLogin(android.view.View v)}
+
+\noindent Wenn der Nutzername oder das Password invalide ist, dann wird die Methode zurückgegeben. Die Ladeanimation startet. Der Nutzername und das Passwort wird aus den EditText Feldern der TextInputLayouts zwischengespeichert. Das Passwort wird mit MD5 verschlüsselt. Anschließend wird die Methode "loginUser" aufgerufen. \newline 
+
+\noindent\textbf{Methode loginUser(java.lang.String username, \newline                     java.lang.String password, boolean stayLoggedIn)}
+
+\noindent Die Methode "loginUser" vergleicht die Login Informationen, welche vom Nutzer eingegeben wurden mit denen, welche sich auf dem Server befinden. Mithilfe der Methode "loginUser" wird eine Anfrage über Retrofit an den Server gestellt. Ist die Anfrage erfolgreich, so wird der Nutzer auf die "ProfileActivity" weitergeleitet. Ist stayLoggedIn true, dann werden die Anmeldedaten mithilfe des LoginHelpers in den SharedPreferences gespeichert. In jedem Fall wird die Ladeanimation wieder beeendet (loadingEnd()) \newline
+
+\noindent\textbf{Methode clearTextFields()}
+
+\noindent Die Methode "clearTextFields" löscht alle Nutzereingaben aus den Textfeldern. Sie wird hier nicht verwendet, da der Nutzer die Möglichkeit haben sollte, bei einem gescheiterten Anmeldeversuch den Nutzername oder Passwort ausbessern zu können. \newline 
+
+\noindent\textbf{Methode loadingStart()}
+
+\noindent Die Methode "loadingStart" startet die Ladeanimation. \newline
+
+\noindent\textbf{Methode loadingEnd()}
+
+\noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
+
+\newpage
 
 \paragraph{ProfileActivity}
+Die Klasse "ProfileActivity" zeigt das Nutzerprofil an, sowie alle wichtigen Informationen. Darunter zählen: - E-Mail Adresse - Nutzername - Bild Außerdem gibt es die Möglichkeit ein neues Bild hochzuladen. Weiterhin hat der Nutzer die Möglichkeit sein Konto wieder zu löschen. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Hier werden Werte gesetzt, wie zum Beispiel TextViews. Über die Intent Extras wird der Nutzername und das Passwort übergeben. Die Ladeanimation startet (loadingStart()) Mithilfe der Methode "getUserByUsernameAndPassword" wird eine Anfrage an den Server erstellt, welcher alle wichtigen Nutzerinformationen abfrägt. Für den Fall dass diese nicht erfolgreich ist, wird eine aussagekräftige Toast Nachricht erzeugt und die Activity beendet. Wenn die Anfrage erfolgreich war, dann wird der Nutzername, die E-Mail Adresse sowie das Bild des Nutzers geladen. Zum Schluss werden die Methoden "btnChooseFileAction" und "btnDeleteAction" ausgeführt. \newline 
+
+\noindent\textbf{Methode btnChooseFileAction()}
+
+\noindent Die Methode "btnChooseFileAction" setzt einen OnClickListener für den Button "btnImageUpload". Die Methode "requestFilePermission" wird augeführt. \newline 
+
+\noindent\textbf{Methode btnDeleteAction()}
+
+\noindent Die Methode "btnDeleteAction" setzt einen OnClickListener für den Button "btnDelete". Es wird ein AlertDialog erstellt, in dem der Nutzer gefragt wird, ob er sein Konto wirklich löschen möchte. \newline 
+
+\noindent\textbf{Methode requestFilePermission()}
+
+\noindent Die Methode "requestFilePermissions" fragt die Erlaubnis für den Zugriff auf das Dateisystem an. Diese wird benötigt um die lokale Fotogalerie zu öffnen. Die Methode "openFilePicker" wird ausgeführt, wenn die Erlaubnis vorliegt. \newline 
+
+\noindent\textbf{Methode onRequestPermissionsResult(int requestCode, \newline              java.lang.String[] permissions, int[] grantResults)}
+
+\noindent Die Methode "onRequestPermissionsResult" wird ausgeführt, wenn die Erlaubnis erteilt oder verweigert wurde. Wenn die Erlaubnis für das Dateisystem erteilt wurde wird die Fotogalerie geöffnet. \newline
+
+\noindent\textbf{Methode openFilePicker()}
+
+\noindent Die Methode "openFilePicker" öffnet die lokale Bildergalerie, also die Fotos welche auf dem Gerät gespeichert sind. Dazu wird ein neuer Intent erstellt (ACTION\_PICK) mit dem Type "image/*". Dieser wird anschließend gestartet. \newline 
+
+\noindent\textbf{Methode onActivityResult(int requestCode, \newline int resultCode, android.content.Intent data)}
+
+\noindent Die Methode "onActivityResult" wird ausgeführt, wenn der Nutzer von der Galerie wieder zurück geleitet wurde. Wenn der result code OK ist und die übermittelten Daten nicht null sind (nullCheck()) wird eine URI erstellt, welche dem ausgewählten Bild entspricht. Anschließend wird die Methode "imageUploadAction" aufgerufen. \newline
+
+\noindent\textbf{Methode imageUploadAction()}
+
+\noindent Die Methode "imageUploadAction" lädt das Bild auf den Server hoch. Zuerst wird ein Multipart RequestBody mit der Datei (vom Bildpfad) erstellt. Dieser wird zusammen mit dem Barcode und den Login Daten an die Methode "uploadProductPhoto" von der Klasse "RetrofitCRUD" übergeben, welche das Bild an den Server überträgt. Wenn das Foto erfolgreich hochgeladen wurde, dann wird eine Toast Nachricht angezeigt. Wenn das Foto zu groß ist, oder keine Internetverbindung besteht wird ebenfalls eine aussagekräftige Fehlermeldung über eine Toast Nachricht angezeigt. In jedem Fall wird die Ladeanimation wieder beendet (loadingEnd()) \newline 
+
+\noindent\textbf{Methode loadingStart()}
+
+\noindent Die Methode "loadingStart" startet die Ladeanimation. \newline
+
+\noindent\textbf{Methode loadingEnd()}
+
+\noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
 
 \paragraph{SettingsActivity}
+Die Klasse "SettingsActivity" sind die Einstellungen. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Start der Activity ausgeführt. Es wird ein "SettingsHelper" und eine "DatabaseHelper" initialisiert. Als nächstes wird die Methode "configureSettingsElements" aufgerufen. \newline 
+
+\noindent\textbf{Methode configureSettingsElements()}
+
+\noindent Die Methode "configureSettingsElements" konfiguriert die Einstellungen. Als erstes wird die Einstellung für den Switch "ArMarker" konfiguriert. Dazu wird der aktuelle Wert der SharedPreferenes über den "SettingsHelper" abgefragt. Als letztes wird ein onCheckedChangeListener erstellt, welcher bei einer Änderung diese in den "SettingsHelper" wieder unter den SharedPreferences abspeichert. Analog passiert dies auch für den Switch für die "Special Deals". Für die "dealPercentage" wird die Methode "fillDealPercentageSpinner" aufgerufen. Für das "dealInterval" wird die Methode "fillDealIntervalSpinner" aufgerufen. Zuletzt wird die gesamte Anzahl aller Scans aus der lokalen Datenbank abgefragt und angezeigt. \newline 
+
+\noindent\textbf{Methode fillDealPercentageSpinner()}
+
+\noindent Die Methode "fillDealPercentageSpinner" fügt die Prozentzahlen für die Deal Notifications in ein Dropdown Menü ein. Das Array mit den Prozentzahlen wird zuerst vom "PriceHelper" abgefragt. Es wird ein neuer ArrayAdapter initialisiert, welchem das String Array übergeben wird. Der Array Adapter wird anschließend für "dealPercentage" gesetzt. Als aktuelle Auswahl wird der in den SharedPreferences gespeicherte Wert aus dem "SettingsHelper" ausgelesen. Zuletzt wird ein OnItemSelectedListener gesetzt, welcher den gerade ausgewählten Wert für "dealPercentage" wieder mithilfe des SettingsHelpers abspeichert. \newline 
+
+\noindent\textbf{Methode fillDealIntervalSpinner()}
+
+\noindent Die Methode "fillDealIntervalSpinner" fügt das Interval für die Deal Notifications in ein Dropdown Menü ein. Zuerst wird ein String Array mit den möglichen Intervallen erstellt. Es wird ein neuer ArrayAdapter initialisiert, welchem das String Array übergeben wird. Der Array Adapter wird anschließend für "dealInterval" gesetzt. Als aktuelle Auswahl wird der in den SharedPreferences gespeicherte Wert aus dem "SettingsHelper" ausgelesen. Zuletzt wird ein OnItemSelectedListener gesetzt, welcher den gerade ausgewählten Wert für "dealInterval" wieder mithilfe des SettingsHelpers abspeichert. \newline 
+
+\noindent\textbf{Methode btnShowModelsAction()}
+
+\noindent Die Methode "btnShowModelsAction" setzt einen OnClickListener für den Button "showModelsBtn" Es werden alle Modelle von der lokalen SQLite Datenbank abgefragt und angezeigt. \newline
 
 \paragraph{InfoActivity}
+Die Klasse "InfoActivity" zeigt die App Infos an (z.B. Icon, Version, Author) \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der App ausgeführt. Es wird die Versionsnummer bestimmt und für die TextView "app\_version" gesetzt. \newline 
 
 \subsubsection{Adapter Klassen}
 
