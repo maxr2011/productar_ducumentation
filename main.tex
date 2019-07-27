@@ -227,7 +227,7 @@ Die Rest API ist die Schnittstelle zwischen der App und der Datenbank auf dem Se
 
 \section{Technische Dokumentation}
 
-Die Dokumentation der einzelnen Java Klassen befindet sich im generierten JavaDoc Verzeichnis. Die nachfolgende Dokumentation wurde aus den JavaDoc Kommentaren übernommen.
+Die Dokumentation der einzelnen Java Klassen befindet sich im generierten JavaDoc Verzeichnis. Die nachfolgende Dokumentation wurde aus den JavaDoc Kommentaren übernommen. Bestimmte Klassen können doppelt vorkommen.
 
 \subsection{Android Manifest}
 
@@ -863,37 +863,302 @@ Die Klasse "InfoActivity" zeigt die App Infos an (z.B. Icon, Version, Author) \n
 
 \noindent Die Methode "onCreate" wird beim Starten der App ausgeführt. Es wird die Versionsnummer bestimmt und für die TextView "app\_version" gesetzt. \newline 
 
+\subsubsection{Fragment Klassen}
+
+\paragraph{ScanFragment}
+Die Klasse "ScanFragment" ist ein Fragment für das Scannen von Barcodes. \newline 
+
+\noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten des Fragments ausgeführt. \newline 
+
+\noindent\textbf{Methode checkPermission()}
+
+\noindent Die Methode "checkPermission" überprüft ob die Erlaubnis für die Benutzung der Kamera erteilt wurde. \newline 
+
+\noindent\textbf{Methode requestPermission()}
+
+\noindent Die Methode "requestPermission" fragt die Erlaubnis für die Benutzung der Kamera an. \newline 
+
+\noindent\textbf{Methode onRequestPermissionsResult(int requestCode, \newline              java.lang.String[] permission, int[] grantResults)}
+
+\noindent Die Methode "onRequestPermissionsResult" wird aufgerufen nachdem die Abfrage für die Erlaubnis der Kamerabenutzung stattgefunden hatte. \newline 
+
+\noindent\textbf{Methode onActivityResult(int requestCode, \newline 
+int resultCode, android.content.Intent intent)}
+
+\noindent Die Methode "onActivityResult" wird ausgeführt wenn ein Barcode gescannt wurde. \newline 
+
+\noindent\textbf{Methode displayAlertMessage(java.lang.String message, \newline         android.content.DialogInterface.OnClickListener listener)}
+
+\noindent Die Methode "displayAlertMessage" generiert einen Fehlerdialog. \newline 
+
+\paragraph{CustomArFragment}
+Die Klasse "CustomArFragment" ist ein ArFragment, welches in der "ProductScanActivity" verwendet wird. \newline 
+
+\noindent\textbf{Methode getSessionConfiguration(com.google.ar.core.Session session)}
+
+\noindent Die Methode getSessionConfiguration wurde überschrieben. \newline 
+
 \subsubsection{Adapter Klassen}
 
 \paragraph{ProductListAdapter}
+Die Klasse "ProductListAdapter" stellt eine Adapterklasse dar für die Produktelemente, welche in der "LastScannedProductsActivity" in einer ListView angezeigt werden. \newline 
+
+\noindent\textbf{Innere Klasse ViewHolder}
+
+\noindent ViewHolder Klasse, welche folgendes enthält: TextView name TextView barcode TextView scannedAt ImageView image \newline 
+
+\noindent\textbf{Methode getView(int position, \newline                                android.view.View convertView, android.view.ViewGroup parent)}
+
+\noindent Die Methode "getView" wird von der Klasse "ArrayAdapter" überschrieben. Zuerst werden die Produktinformationen in lokale Variablen gespeichert. Als nächstes wird ein Produkt erzeugt mit den entsprechenden Variablen. Weiterhin wird ein ViewHolder initialisiert. Dieser wird in den nächsten Schritten mit den Informationen des Produktes gefüllt. Es wird eine Animation für das Laden von weiteren Elementen festgelegt. Das Bild des Produktes wird in die dafür vorgesehene ImageView geladen. \newline 
+
 
 \paragraph{PhotoAdapter}
+Die Klasse "ProductListAdapter" stellt eine Adapterklasse dar für die Fotos, welche in der "ProductPhotoGalleryActivity" in einer GridView angezeigt werden. \newline 
+
+\noindent\textbf{Methode getCount()}
+
+\noindent Gibt die Anzahl der Fotos zurück. \newline 
+
+\noindent\textbf{Methode getItem(int position)}
+
+\noindent Gibt das Foto zurück, welches sich an einer bestimmten Position befindet. \newline 
+
+\noindent\textbf{Methode getItemId(int position)}
+
+\noindent Methode "getItemId" gibt die Id eines Items zurück. \newline 
+
+\noindent\textbf{Methode getPhotos()}
+
+\noindent Alle Fotos bekommen. \newline 
+
+\noindent\textbf{Methode setPhotos(java.util.List<Photo> photos)}
+
+\noindent Liste Fotos setzen. \newline 
+
+\noindent\textbf{Methode addPhoto(Photo photo)}
+
+\noindent Einzelnes Foto hinzufügen. \newline 
+
+\noindent\textbf{Methode removePhoto(Photo photo)}
+
+\noindent Einzelnes Foto entfernen. \newline 
+
+\noindent\textbf{Methode getView(int position, \newline                              android.view.View convertView, android.view.ViewGroup parent)}
+
+\noindent Methode "getView" Das Foto wird in die dafür vorgesehene ImageView in der GridView geladen. \newline 
+
+\newpage
 
 \subsubsection{Hilfs Klassen}
 
 \paragraph{GeneralHelper}
+Die Klasse "GeneralHelper" enthält allgemeine Variablen und Hilfsmethoden. \newline 
+
+\noindent\textbf{Methode toastMessage(java.lang.String message, \newline                   android.content.Context context)}
+
+\noindent Die Methode "toastMessage" sendet eine Toast Message \newline
+
+\noindent\textbf{Methode showMessage(java.lang.String title,\newline  java.lang.String message, android.content.Context context)}
+
+\noindent Die Methode "showMessage" zeigt einen Fehlerdialog an. \newline
+
+\noindent\textbf{Methode alertDialog(java.lang.String message, \newline  android.content.Context context)}
+
+\noindent Die Methode "alertDialog" zeigt einen Fehlerdialog an. \newline
+
+\noindent\textbf{Methode getTimestampStringNow()}
+
+\noindent Die Methode "getTimestampStringNow" gibt den aktuellen Timestamp in Form eines Strings aus. \newline 
+
+\noindent\textbf{Methode convertFromTimestamp(java.lang.String timestamp)}
+
+\noindent Die Methode "convertFromTimestamp" gibt den Timestamp als String an im folgenden Format: DD.MM.YYYY HH:II:SS \newline 
+
+\noindent\textbf{Methode convertFromTimestampWithoutSec(java.lang.String timestamp)}
+
+\noindent Die Methode "convertFromTimestampWithoutSec" gibt den Timestamp als String an im folgenden Format: DD.MM.YYYY HH:II \newline 
+
+\noindent\textbf{Methode TimestampIsBefore(java.lang.String timestamp\_a, \newline          java.lang.String timestamp\_b)}
+
+\noindent Die Methode "TimestampIsBefore" überprüft ob ein Timestamp zeitlich vor einem anderen Timestamp liegt. \newline
+
+\noindent\textbf{Methode MD5(java.lang.String md5)}
+
+\noindent Die Methode "MD5" generiert einen MD5 Hashwert für einen bestimmten Eingabestring. \newline
+
+\noindent\textbf{Methode getRealPathFromUri(android.net.Uri uri, \newline                  android.content.Context context)}
+
+\noindent Die Methode "getRealPathFromUri" gibt den Pfad einer Uri zurück. \newline
+
+\noindent\textbf{Methode getNames(java.lang.Class $\langle? extends java.lang.Enum\langle?\rangle\rangle$ e)}
+
+\noindent Die Methode "getNames" gibt die Namen eines Enums in Form eines String Arrays zurück. \newline 
+
+\noindent\textbf{Methode getPositionFromStringArray(java.lang.String[] array, \newline
+                                             java.lang.String elem)}
+
+\noindent Die Methode "getPositionFromStringArray" gibt die Position eines Elements in einem Stringarray zurück. \newline 
+
+\noindent\textbf{Methode nullCheck(java.lang.Object obj)}
+
+\noindent Die Methode "nullCheck" überprüft ob ein Objekt null ist / ob ein Objekt existiert / initialisiert wurde. \newline 
+
+\noindent\textbf{Methode nullToString(java.lang.Object input)\newline}
+\noindent\textbf{Methode nullToString(java.lang.Integer input)\newline}
+\noindent\textbf{Methode nullToString(java.lang.Long input)\newline}
+\noindent\textbf{Methode nullToString(java.lang.Double input)\newline}
+\noindent\textbf{Methode nullToString(java.lang.String input)\newline}
+
+\noindent Die Methode "nullToString" fügt den Platzhalter "null" ein wenn ein Objekt in einer Ausgabe null sein sollte. \newline 
+
+\noindent\textbf{Methode getVersionNumber(android.content.Context context)}
+
+\noindent Die Methode "getVersionNumber" fragt die Version der App ab.\newline 
 
 \paragraph{BarcodeHelper}
+Die Klasse "BarcodeHelper" bietet Hilfsmethoden für Barcodes an. \newline 
+
+\noindent\textbf{Methode encodeAsBitmap(java.lang.String contents, \newline          com.google.zxing.BarcodeFormat format, int img\_width, int img\_height) \newline 
+throws com.google.zxing.WriterException}
+
+\noindent Die Methode "encodeAsBitmap" wandelt den Barcode in ein Bild um. \newline 
+
+\noindent\textbf{Methode guessAppropriateEncoding(java.lang.CharSequence contents)}
+
+\noindent Die Methode "guessAppropriateEncoding" ist eine Hilfsmethode für die Methode "encodeAsBitmap". \newline 
+
+\noindent\textbf{Methode generateBarCodeCode128(java.lang.String data)}
+
+\noindent Die Methode "generateBarCodeCode128" generiert ein Bild von einem Barcode im Format CODE128. \newline 
+
+\noindent\textbf{Methode generateBarCodeEAN(java.lang.String data)}
+
+\noindent Die Methode "generateBarCodeEAN" generiert ein Bild von einem Barcode im Format EAN\_13. \newline 
+
 
 \paragraph{QRCodeHelper}
+Die Klasse QRCodeHelper bietet Hilfsmethoden für QR Codes an. \newline 
+
+\noindent\textbf{Methode qrCreateBitmap(java.lang.String str)}
+
+\noindent Die Methode "qrCreateBitmap" erstellt ein Bild von einem QR Code. \newline 
 
 \paragraph{LoginHelper}
+Die Klasse LoginHelper verwaltet wichtige Login Variablen sowie den gespeicherten Login. \newline 
+
+\noindent\textbf{Methode saveLogin(java.lang.String username, \newline                      java.lang.String password, android.content.Context \_\_context)}
+
+\noindent Die Methode "saveLogin" speichert die Login Daten in den sharedPreferences. \newline 
+
+\noindent\textbf{Methode checkIfSharedPrefsExistsAndNotEmpty( \newline android.content.Context \_\_context)}
+
+\noindent Die Methode "checkIfSharedPrefsExistsAndNotEmpty" überprüft ob die gespeicherten Login Daten existieren und nicht leer sind. \newline 
+
+\noindent\textbf{Methode getSharedUsername(android.content.Context \_\_context)}
+
+\noindent Die Methode "getSharedUsername" gibt den gespeicherten Benutzernamen zurück. \newline 
+
+\noindent\textbf{Methode getSharedPassword(android.content.Context \_\_context)}
+
+\noindent Die Methode "getSharedPassword" gibt das gespeicherte Passwort zurück. \newline 
+
+\noindent\textbf{Methode doLogout(android.content.Context \_\_context)}
+
+\noindent Die Methode "doLogout" meldet den Benutzer ab. \newline
 
 \paragraph{SettingsHelper}
+Die Klasse SettingsHelper verwaltet die gespeicherten Einstellungen. \newline 
+
+\noindent\textbf{Methode saveBoolean(java.lang.String key,                     java.lang.Boolean value)}
+
+\noindent Die Methode "saveBoolean" speichert eine Boolean in den sharedPreferences ab. \newline 
+
+\noindent\textbf{Methode saveString(java.lang.String key, java.lang.String value)}
+
+\noindent Die Methode "saveString" speichert einen String in den sharedPreferences ab. \newline 
+
+\noindent\textbf{Methode saveArSwitch(java.lang.Boolean switchValue)}
+
+\noindent Die Methode "saveArSwitch" speichert den Wert des Switches "ArMarker" ab. \newline
+
+\noindent\textbf{Methode saveSpecialDeal(java.lang.Boolean specialDeal)}
+
+\noindent Die Methode "saveSpecialDeal" speichert den Wert des Switches "SpecialDealNotifications" ab. \newline 
+
+\noindent\textbf{Methode saveDealPercentage(java.lang.String dealPercentage)}
+
+\noindent Die Methode "saveDealPercentage" speichert den Wert (in Prozent) für Deals ab. \newline 
+
+\noindent\textbf{Methode saveInterval(java.lang.String interval)}
+
+\noindent Die Methode "saveInterval" speichert den Wert des Intervals für die Notifications ab. \newline 
+
+\noindent\textbf{Methode getArSwitch()}
+
+\noindent Die Methode "getArSwitch" gibt den aktuellen Zustand für den Switch "ArMarker" zurück. \newline 
+
+\noindent\textbf{Methode getSpecialDeal()}
+
+\noindent Die Methode "getSpecialDeal" gibt den aktuellen Zustand für den Switch "SpecialDealNotifications" zurück. \newline 
+
+\noindent\textbf{Methode getSpecialDealPercentage()}
+
+\noindent Die Methode "getSpecialDealPercentage" gibt den aktuellen Wert (in Prozent) für Deals zurück. \newline 
+
+\noindent\textbf{Methode getSpecialDealInterval()}
+
+\noindent Die Methode "getSpecialDealInterval" gibt das Interval für die Notifications zurück. \newline 
+
 
 \paragraph{ImageHelper}
+Die Klasse "ImageHelper" stellt eine generelle Hilfsklasse für Bilder dar. \newline 
+
+\noindent\textbf{Methode getBitmapFromURL(java.lang.String src)}
+
+\noindent Die Methode "getBitmapFromURL" gibt ein Bild von einer Ressource url zurück. \newline 
+
+\noindent\textbf{Methode saveImageBitmapUsingPicasso(java.lang.String image\_ressource, \newline 
+java.lang.String title,
+java.lang.String description, \newline 
+android.content.ContentResolver contentResolver, \newline 
+android.content.Context context)}
+
+\noindent Die Methode "saveImageBitmapUsingPicasso" speichert ein Bild ab. \newline 
+
+\noindent\textbf{Methode setImageViewLocalImage(java.lang.String imagePath, \newline android.widget.ImageView imageView)}
+
+\noindent Die Methode "setImageViewLocalImage" lädt ein lokales Bild in eine ImageView. \newline 
+
+\noindent\textbf{Methode isRemoteImage(java.lang.String imagePath)}
+
+\noindent Die Methode isRemoteImage überprüft ob es sich um ein Bild aus dem Internet handelt. \newline 
+
+\noindent\textbf{Methode getBitmapFromView(android.widget.ImageView imageView)}
+
+\noindent Die Methode getBitmapFromView gibt das Bild von einer ImageView zurück. \newline 
+
+\noindent\textbf{Methode getRightAngleImage(java.lang.String photoPath)}
+
+\noindent Die Methode "getRightAngleImage" ermittelt, wie ein Bild gedreht ist (0 Grad, 90 Grad, 180 Grad, 270 Grad). \newline 
+
+\noindent\textbf{Methode rotateImage(int degree,                                     java.lang.String imagePath)}
+
+\noindent Die Methode "rotateImage" dreht ein Bild. \newline
 
 \paragraph{PhotoHelper}
+Die Hilfsklasse "PhotoHelper" enthält wichtige Hilfsmethoden und Variablen für die Fotogallerie. \newline 
+
+\noindent\textbf{Methode userCheck(java.lang.String photo\_ressource\_string, \newline       java.lang.String barcode)}
+
+\noindent Die Methode "userCheck" überprüft ob das Bild des Produkts vom Nutzer selbst hinzugefügt wurde. Nur dieser kann es löschen. \newline 
 
 \paragraph{UploadHelper}
+Die Hilfsklasse "UploadHelper" enthält alle wichtigen Variablen für den Upload einer Datei. \newline 
 
 \paragraph{PriceHelper}
-
-\subsubsection{Fragment Klassen}
-
-\paragraph{ScanFragment}
-
-\paragraph{CustomArFragment}
+Die Hilfsklasse "PriceHelper" enthält alle wichtigen Variablen und Methoden für den Preis eines Produktes. \newline
 
 \subsubsection{Retrofit Schnittstelle}
 
