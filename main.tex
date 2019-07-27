@@ -152,28 +152,76 @@ Ursprünglich war geplant, dass die Daten ausschließlich auf dem Server in eine
 
 \subsection{Übersicht Backend Server}
 
+Der Backend Server ist ein gemieteter Server von Hosteurope. \newline
+Produktbezeichnung: "Virtual Server Linux Advanced 8.2". \newline
+Dieser hat folgende Linux Version installiert: Ubuntu 16.04.6 LTS. \newline \newline
+
+\noindent Die Technischen Spezifikationen lauten wie folgt: \newline 
+
+\noindent 4 virtuelle Kerne \newline
+\noindent 6 GB RAM \newline 
+\noindent 200GB SSD \newline 
+
+\noindent Es handelt sich hierbei um einen virtuellen Server, das bedeutet, dass sich der Server mit anderen "Containern" die Hardware eines Servers teilen. % Die Hardware eines großen Server wird auf die Container entsprechend aufgeteilt. % 
+\newline
+
+\noindent Der Server hat eine eigene Domain: www.nimoo.de. 
+
+\newpage
+
 \subsection{Übersicht REST API}
+
+Die Rest Schnittstelle wurde mit PHP auf dem Webserver umgesetzt welcher vom Backend Server bereits zur Verfügung gestellt wurde. 
+Für jede Ressource existiert ein Pfad, mit entsprechender PHP Datei. \newline 
+
+\noindent Der Hauptpfad für die App auf dem Webserver: "https://www.nimoo.de/apps/productar" \newline
+
+\noindent Folgende Pfade existieren auf dem Webserver: \newline
+
+\noindent ../products/ \newline
+\noindent ../products/images/ \newline
+\noindent ../products/photos/ \newline
+\noindent ../products/prices/ \newline
+\noindent ../products/ratings/ \newline
+\noindent ../users/ \newline
+\noindent ../users/images \newline
+\noindent ../models/ \newline
 
 \subsection{Technische Entscheidungen}
 
 \subsubsection{Warum Android?}
 
+Die Entscheidung, die App für Android zu entwickeln wurde getroffen, da Android zumindest in Deutschland einen höheren Marktanteil besitzt als iOS. Vor allem die Studenten der Fakultät Informatik und Wirtschaftsinformatik (FIW) und in der Vertiefung Mobile Solutions benutzen mehrheitlich Android Smartphones. Ein weiterer Grund ist, dass Android Java basiert ist und dafür sehr gut geeignet ist, wenn bereits fortgeschrittene Erfahrungen mit der Programmiersprache Java gegeben sind. Weiterhin gibt es beim Entwickeln keine Mehrkosten, da es bereits viele Open-Source Erweiterungen (Bibliotheken) gibt und Anleitungen, die das Entwickeln weiter vereinfachen.
+
 \subsubsection{Welche Androidversion?}
+
+Als minimal unterstützte Android Version (minSdkVersion) für die App musste die Api 24 (Android 7) verwendet werden. Dies liegt daran, dass die AR Funktionialität mit der Google AR Core Erweiterung erst ab Android Version 7 (Api 24) unterstützt wurde und alle vorherigen Versionen keine Unterstützung haben. Dies hat den Nachteil, dass nur ca. 37,1 \% aller Android Geräte unterstützt werden im Vergleich zu den 95,3 \% die mit Android 4.4 (Api 19) unterstützt würden. 
 
 \subsubsection{Welche Entwicklungsumgebung?}
 
-Android Studio.
+Zum Entwickeln der App wurde hauptsächlich die Entwicklungsumgebung von Android Studio und IntelliJ genutzt.
 
-\subsubsection{Warum eine MySQL Datenbank?}
+\subsubsection{Wieso Google AR Core?}
 
-\subsubsection{Warum eine REST API?}
+Googles neuestes Framework für Augmented Reality Anwendungen heist "AR Core". Im Vergleich zu einer AR Anwendung mit Unity lässt es es sich sehr einfach in die App integrieren (Als Fragment oder View in der Aktivity). Weiterhin lassen sich Modelle (.OBJ) sehr einfach mit dem Sceneform Plugin einbinden und bearbeiten. 
+
+\subsubsection{Wieso eine MySQL Datenbank?}
+
+Zum einen war die MySQL Datenbank ebenfalls schon auf dem Backend Server aufgesetzt, somit war keine weitere Konfiguration notwendig. Weiterhin ist es sehr einfach eine Datenbank mit SQL zu erstellen und Abfragen durchzuführen.
+
+\subsubsection{Wieso eine REST API?}
+
+Die Rest API ist die Schnittstelle zwischen der App und der Datenbank auf dem Server. Diese wird benötigt, da man aus Sicherheitsgründen keine direkte Verbindung zwischen App und Datenbank zulassen darf.
 
 \subsubsection{Vergleich mit Alternativlösungen}
 
-\paragraph{Firebase von Google}
+\paragraph{Firebase von Google}.\newline
 
-\paragraph{Alternative Datenbankmodelle}
+\noindent Die Backendlösung von Google ist "FireBase" und wäre erheblich einfacher umzusetzten und hätte ebenfalls den Vorteil, dass kein externer Server benötigt wird. Warum wurde diese Lösung in diesem Projekt jedoch nicht verwendet? Die Datenbank enthält sensible Daten, wie zum Beispiel Nutzerdaten. Diese sollen nicht an Google gesendet werden.
 
+\paragraph{Alternative Datenbankmodelle}.\newline
+
+\noindent PostgreSQL und MongoDB.
 
 \newpage
 
