@@ -75,6 +75,7 @@ Scannen von Produkten, Informationen zu Produkten, Preisvergleich, Bilder hochla
 
 \subsubsection{Admin}
 
+\subsection{Anforderungsanalyse}
 
 \newpage
 
@@ -162,7 +163,7 @@ Dieser hat folgende Linux Version installiert: Ubuntu 16.04.6 LTS. \newline \new
 \noindent 6 GB RAM \newline 
 \noindent 200GB SSD \newline 
 
-\noindent Es handelt sich hierbei um einen virtuellen Server, das bedeutet, dass sich der Server mit anderen "Containern" die Hardware eines Servers teilen. % Die Hardware eines großen Server wird auf die Container entsprechend aufgeteilt. % 
+\noindent Es handelt sich hierbei um einen virtuellen Server, das bedeutet, dass sich der Server mit anderen "Containern" die Hardware eines realen Servers teilen. % Die Hardware eines großen Server wird auf die Container entsprechend aufgeteilt. % 
 \newline
 
 \noindent Der Server hat eine eigene Domain: www.nimoo.de. 
@@ -590,6 +591,14 @@ Die Klasse "CreateProductActivity" ist dazu da um ein neues Produkt zu erstellen
 
 \noindent Die Methode "btnShareAction" setzt einen OnClickListener für den Button "btnShare". Der Nutzer hat die Möglichkeit die Produktinformationen zu teilen. Es wird ein Intent erzeugt (ACTION\_SEND) mit dem Type ("text/plain") Diesem wird die Nachricht zum Teilen übergeben. \newline 
 
+\noindent\textbf{Methode btnRateAction(java.lang.String productName,\newline               java.lang.String barcode)} 
+
+\noindent Die Methode "btnRateAction" setzt einen OnClickListener für den Button "btnRate". Der Nutzer hat die Möglichkeit das Produkt zu bewerten. \newline 
+
+\noindent\textbf{Methode fetchCurrentRating(java.lang.String barcode)} 
+
+\noindent Die Methode "fetchCurrentRating" fragt die Bewertungen für das Produkt ab. Der Barcode wird dann an die Methode "getAllRatingsForProduct" weitergegeben. Wenn die Ratings erfolgreich abgefragt wurden, wird der arithmetische Mittelwert ermittelt und dieser Wert an die RatingBar weitergeben. Die Ratingsbar zeigt nun die durchschnittliche Bewertung für ein Produkt an. \newline 
+
 \noindent\textbf{Methode fetchCurrentPrice(java.lang.String barcode)} 
 
 \noindent Die Methode "fetchCurrentPrice" fragt den aktuellen Preis des Produktes ab. Der Barcode wird dann an die Methode "getProductLatestPrice" weitergegeben. Wenn der Preis erfolgreich abgefragt wurde, wird die Währung ermittelt und das Währungssymbol abgefragt. Der Preis wird zusammen mit dem Währungssymbol in die TextView "detailPrice" eingefügt. Weiterhin wird der zugehörige Shop mithilfe der Methode "getShopFromPrice" abgefragt. Ist die Abfrage erfolgreich, dann wird der Name des Shops dem Preis angefügt. \newline
@@ -703,6 +712,37 @@ Die Klasse "PriceHistoryActivity" zeigt dem Nutzer den Preisverlauf des Produkts
 \noindent\textbf{Methode onCreate(android.os.Bundle savedInstanceState)}
 
 \noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Es werden Werte initialisiert, wie zum Beispiel eine GraphView. Zuerst wird die Ladeanimation gestartet. Als nächstes wird der Barcode aus den Intent Extras abgefragt. Dieser wird der Methode "getProductPrices" übergeben, welche eine Anfrage an den Server schickt. Wenn die Anfrage erfolgreich war, dann wird eine Liste von Preisen als Antwort vom Server zurückgegeben. Wenn diese nicht "null" ist (nullCheck()), nicht leer ist und mindestens 2 Elemente beinhaltet, dann wir eine LineGraphSeries initialisiert, welcher Werte (Datenpunkte (x,y)) hinzugefügt werden können. Die Preise werden mit aufsteigenden x-Werten je einem y-Wert zugeordnet. Nun muss die maximale Anzahl an Datenpunkten für die x-Achse noch einmal manuel gesetzt werden. Anschließend wird die LineGraphSeries dem "priceHistoryGraph" hinzugefügt. Somit werden alle Werte in Form eines einfachen Graphes visualisiert. In jedem Fall wird die Ladeanimation wieder beendet (loadingEnd()) \newline
+
+\noindent\textbf{Methode loadingStart()}
+
+\noindent Die Methode "loadingStart" startet die Ladeanimation. \newline
+
+\noindent\textbf{Methode loadingEnd()}
+
+\noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
+
+\paragraph{CreateRatingActivity}
+Die Klasse "CreateRatingActivity" ist dafür da, dass Nutzer eine Bewertung für ein Produkt erstellen können. \newline 
+
+\noindent\textbf{Methode onCreate(@Nullable android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Es werden wichtige Variablen initialisiert wie zum Beispiel eine RatingBar oder ein Textfeld. Außerdem werden die Methoden "ratingStarsListener()" und "rateButtonListener" aufgerufen. \newline
+
+\noindent\textbf{Methode fillWithUserRating()}
+
+\noindent Die Methode "fillWithUserRating" füllt die RatingBar und das Textfeld mit der zuvor abgegebenen Bewertung des Nutzers aus, falls diese existiert, damit der Nutzer die Möglichkeit hat die Bewertung zu bearbeiten. \newline 
+
+\noindent\textbf{Methode ratingStarsListener()}
+
+\noindent Die Methode "ratingStarsListener" setzt einen OnRatingBarChangeListener für die RatingBar. In dem Fall wird die Anzahl der Sterne bei einer Bewertung in die int Variable stars gespeichert. \newline 
+
+\noindent\textbf{Methode rateButtonListener()}
+
+\noindent Die Methode "rateButtonListener" setzt einen OnClickListener für den "rateButton". Zuerst wird die Methode "validateRatingInput" aufgerufen, wenn diese true zurückliefert, wird die Eingabe an den Server geschickt, die Bewertung wird dann auf den Server gespeichert. \newline 
+
+\noindent\textbf{Methode validateRatingInput()}
+
+\noindent Die Methode "validateRatingInput" validiert die Eingabe der RatingBar und des Textfeldes. Diese besitzt folgende Vorgaben: - RatingBar muss mindestens einmal bewertet worden sein und - Anzahl der Sterne dürfen nicht 0 sein. - Text des Rating Reviews darf nicht leer sein. \newline 
 
 \noindent\textbf{Methode loadingStart()}
 
@@ -1369,15 +1409,19 @@ Auf diesem Pfad befindet sich eine index.php. \newline
 
 \noindent \textbf{GET: Keine Parameter}
 
-\noindent Gibt alle Bewertungen zurück. \newline
+\noindent Gibt alle Bewertungen im JSON Format zurück. \newline
 
 \noindent \textbf{GET: ?barcode=1234567890128}
 
-\noindent Gibt alle Bewertungen für das Produkt mit dem Barcode "1234567890128" zurück. \newline
+\noindent Gibt alle Bewertungen für das Produkt mit dem Barcode "1234567890128" im JSON Format zurück. \newline
+
+\noindent \textbf{GET: ?barcode=1234567890128\newline\&username=test\&password=e10adc3949ba59abbe56e057f20f883e}
+
+\noindent Gibt die Bewertung des Nutzers "test" für das Produkt mit dem Barcode "1234567890128" im JSON Format zurück. \newline 
 
 \noindent \textbf{POST: new\_rating\_barcode, new\_rating\_stars, \newline new\_rating\_review, new\_rating\_username, new\_rating\_password}
 
-\noindent Erstellt eine neue Bewertung von einem Nutzer für ein Produkt. \newline  
+\noindent Erstellt eine neue Bewertung von einem Nutzer für ein Produkt. Wenn schon bereits eine Bewertung für den Nutzer existiert, dann wird diese aktualisiert.\newline  
 
 \subsubsection{Pfad ../users/}
 
@@ -1431,6 +1475,15 @@ Auf dem Hauptpfad befindet sich eine index.php \newline
 
 \section{Zukünftige Entwicklungen}
 
+\subsection{Erweiterungen}
+
+\subsection{Was könnte in Zukunft besser gemacht werden?}
+
+Die ProductDetailActivity ist sehr überladen mit Informationen und Buttons. Ein klares Design und 
+
+\newpage
+
+\section{Wirtschaftlichkeitsbetrachtung}
 
 \newpage
 
