@@ -1365,7 +1365,19 @@ Auf diesem Pfad befindet sich eine index.php. \newline
 \noindent Ein neuer Preis wird für das Produkt mit dem Barcode "1234567890128" in die Datenbank geschrieben.
 
 \paragraph{Unterpfad ../products/ratings/}
-Auf diesem Pfad befindet sich eine index.php.
+Auf diesem Pfad befindet sich eine index.php. \newline
+
+\noindent \textbf{GET: Keine Parameter}
+
+\noindent Gibt alle Bewertungen zurück. \newline
+
+\noindent \textbf{GET: ?barcode=1234567890128}
+
+\noindent Gibt alle Bewertungen für das Produkt mit dem Barcode "1234567890128" zurück. \newline
+
+\noindent \textbf{POST: new\_rating\_barcode, new\_rating\_stars, \newline new\_rating\_review, new\_rating\_username, new\_rating\_password}
+
+\noindent Erstellt eine neue Bewertung von einem Nutzer für ein Produkt. \newline  
 
 \subsubsection{Pfad ../users/}
 
