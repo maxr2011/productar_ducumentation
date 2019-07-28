@@ -319,7 +319,7 @@ Die Enumklasse "Interval" beinhaltet die Möglichkeiten für ein Updateinterval 
 
 \noindent\textbf{Methode onOptionsItemSelected(android.view.MenuItem item)}
 
-\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_login": Wenn eingeloggt, dann wird mann zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
+\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_search": Man wird zur Suche weitergeleitet. Bei "action\_login": Wenn eingeloggt, dann wird man zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
 
 \noindent\textbf{Methode scanNow(android.view.View view)}
 
@@ -424,7 +424,7 @@ Die Klasse "LastScannedProductsActivity" zeigt die zuletzt gescannten Produkte d
 
 \noindent\textbf{Methode onOptionsItemSelected(android.view.MenuItem item)} 
 
-\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_login": Wenn eingeloggt, dann wird mann zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
+\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_search": Man wird zur Suche weitergeleitet. Bei "action\_login": Wenn eingeloggt, dann wird man zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
 
 \noindent\textbf{Methode addNewProduct()} 
 
@@ -448,7 +448,7 @@ Die Klasse "CreateProductActivity" ist dazu da um ein neues Produkt zu erstellen
 
 \noindent\textbf{Methode onOptionsItemSelected(android.view.MenuItem item)} 
 
-\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_login": Wenn eingeloggt, dann wird mann zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
+\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_search": Man wird zur Suche weitergeleitet. Bei "action\_login": Wenn eingeloggt, dann wird man zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
 
 \noindent\textbf{Methode AddDataListener()} 
 
@@ -528,7 +528,7 @@ Die Klasse "CreateProductActivity" ist dazu da um ein neues Produkt zu erstellen
 
 \noindent\textbf{Methode onOptionsItemSelected(android.view.MenuItem item)} 
 
-\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_login": Wenn eingeloggt, dann wird mann zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
+\noindent Die Methode "onOptionsItemsSelected" wird ausgeführt, wenn ein Menüelement ausgewählt wurde. Je nachdem um welches Element es sich handelt werden unterschiedliche Aktionen ausgeführt. Bei "action\_search": Man wird zur Suche weitergeleitet. Bei "action\_login": Wenn eingeloggt, dann wird man zum Profil weitergeleitet. Wenn nicht eingeloggt, dann wird man zum Login weitergeleitet. Bei "action\_settings": Man wird zu den Einstellungen weitergeleitet. Bei "action\_info": Man wird zu den Informationen über die App weitergeleitet. Bei "action\_close": Die App wird beendet. \newline
 
 \noindent\textbf{Methode productPhotosActionListener()} 
 
@@ -711,6 +711,28 @@ Die Klasse "PriceHistoryActivity" zeigt dem Nutzer den Preisverlauf des Produkts
 \noindent\textbf{Methode loadingEnd()}
 
 \noindent Die Methode "loadingEnd" beendet die Ladeanimation. \newline
+
+\paragraph{ProductSearchActivity}
+Die Klasse "ProductSearchActivity" stellt die Suchfunktion zur Verfügung. Die Datenbank auf dem Server kann komplett nach Produkten durchsucht werden. \newline 
+
+\noindent\textbf{Methode onCreate(@Nullable android.os.Bundle savedInstanceState)}
+
+\noindent Die Methode "onCreate" wird beim Starten der Activity ausgeführt. Hier werden wichtige Werte initialisiert, wie zum Beispiel eine ListView oder ein Textfeld für die Suche. Mithilfe eines "addTextChangedListeners" und eines "TextWatchers" lässt sich eine Methode aufrufen sobald der Nutzer eine Änderung am Textfeld vorgenomen hat. Sind Suchergebnisse vorhanden, wird die ListView nun mit den Produkten, welche auf dem Server gefunden wurden, gefüllt. Ansonsten wird eine TextView angezeigt, dass keine Suchergebnisse gefunden wurden. Sobald der Nutzer auf ein Element der ListView tippt, wird er, sollte das Produkt lokal schon existieren direkt zur "ProductDetailActivity" weitergeleitet, ansonsten wird das Produkt erst heruntergeladen und der Nutzer wird nach einer kurzen Zeit auf die "ProductDetailActivity weitergeleitet. \newline 
+
+\noindent\textbf{Methode goToProductDetailActivity(java.lang.String itemBarcode)}
+ 
+\noindent Die Methode "goToProductDetailActivity" leitet einen auf die Informationsseite des Produktes weiter. \newline
+
+\noindent\textbf{Methode showNoSearchResult()}
+ 
+\noindent Die Methode "showNoSearchResult" blendet die ListView aus und zeigt stattdessen eine TextView an mit der Nachricht, dass keine Suchergebnisse gefunden wurden. \newline 
+
+\noindent\textbf{Methode hideNoSearchResult()}
+ 
+\noindent Die Methode "hideNoSearchResult" blendet die TextView (keine Suchergebnisse) wieder aus. \newline 
+
+
+\newpage
 
 \paragraph{RegisterActivity}
 Die Klasse "RegisterActivity" ist dafür da, dass sich Nutzer ein Konto anlegen können um sich dann später in der App einloggen zu können. \newline 
@@ -913,6 +935,16 @@ Die Klasse "ProductListAdapter" stellt eine Adapterklasse dar für die Produktel
 
 \noindent Die Methode "getView" wird von der Klasse "ArrayAdapter" überschrieben. Zuerst werden die Produktinformationen in lokale Variablen gespeichert. Als nächstes wird ein Produkt erzeugt mit den entsprechenden Variablen. Weiterhin wird ein ViewHolder initialisiert. Dieser wird in den nächsten Schritten mit den Informationen des Produktes gefüllt. Es wird eine Animation für das Laden von weiteren Elementen festgelegt. Das Bild des Produktes wird in die dafür vorgesehene ImageView geladen. \newline 
 
+\paragraph{SearchListAdapter}
+Die Klasse "SearchListAdapter" stellt eine Adapterklasse dar für die Produktelemente, welche in der "SearchProductActivity" in einer ListView angezeigt werden. \newline 
+
+\noindent\textbf{Innere Klasse ViewHolder}
+
+\noindent ViewHolder Klasse, welche folgendes enthält: TextView name TextView barcode TextView scannedAt ImageView image \newline 
+
+\noindent\textbf{Methode getView(int position, \newline                                android.view.View convertView, android.view.ViewGroup parent)}
+
+\noindent Die Methode "getView" wird von der Klasse "ArrayAdapter" überschrieben. Zuerst werden die Produktinformationen in lokale Variablen gespeichert. Als nächstes wird ein Produkt erzeugt mit den entsprechenden Variablen. Weiterhin wird ein ViewHolder initialisiert. Dieser wird in den nächsten Schritten mit den Informationen des Produktes gefüllt. Es wird eine Animation für das Laden von weiteren Elementen festgelegt. Das Bild des Produktes wird in die dafür vorgesehene ImageView geladen. \newline 
 
 \paragraph{PhotoAdapter}
 Die Klasse "ProductListAdapter" stellt eine Adapterklasse dar für die Fotos, welche in der "ProductPhotoGalleryActivity" in einer GridView angezeigt werden. \newline 
