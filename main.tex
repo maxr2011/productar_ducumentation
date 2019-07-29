@@ -8,6 +8,10 @@
 \usepackage{graphicx}           % Add pictures to the document
 \usepackage{subfigure}          % 2 pictures side by side
 
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[breaklinks=true]{hyperref}   % Add a link to the document
+\usepackage[hyphens]{url}
+
 \title{Dokumentation ProductAR}
 \author{Maximilian Rehberger}
 \date{\today}
@@ -27,8 +31,14 @@
 
 \begin{document}
 
-
 \maketitle
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=150px]{img/app_icon.png}
+\end{figure}
+
+
 
 \newpage
 
@@ -71,11 +81,91 @@ Scannen von Produkten, Informationen zu Produkten, Preisvergleich, Bilder hochla
 
 \subsubsection{Nutzer}
 
-\subsubsection{Verkäufer}
+Die Hauptzielgruppe, für welche die App interessant ist, sind "Käufer" und "Verkäufer". Deshalb sind diese für Nutzer noch einmal in einer Unterkategorie zusammengefasst.
+
+\paragraph{Käufer} \mbox{}\newline
+
+\noindent \textbf{Nutzer 1: \newline}
+\textbf{Name:} Jonas \newline
+\textbf{Alter:} 21 Jahre \newline 
+\textbf{Status:} ledig \newline 
+\textbf{Eigenschaften:} zurückhaltender \& stiller Typ \newline
+\textbf{Beschäftigung:} E-Commerce Student \newline
+\textbf{Hobbys:} Zocken, Serien schauen \newline
+
+\noindent Jonas beginnt gerade sein E-Commerce Studium in Würzburg. Mit viel Glück hat er eine Wohnung in der Stadt gefunden. Er befindet sich gerade im Umzug. Das Geld, welches er sich in den Ferien erarbeitet hat, nimmt er um die Möbel für seine neue Wohnung einzukaufen. Um nicht ständig alle Produkte aufschreiben zu müssen, möchte er eine App benutzen, mit der sich Produkte einfach abspeichern lassen. Außerdem möchte er Fotos von den Möbeln machen um sie seinen Eltern zeigen zu können. Er fände es cool, wenn er die Möbel schon gleich bei sich in der Wohnung mit Augmented Reality (AR) ausprobieren kann. \newline 
+
+\noindent \textbf{Nutzer 2: \newline}
+\textbf{Name:} Larissa \newline
+\textbf{Alter:} 24 Jahre \newline 
+\textbf{Status:} In einer Beziehung \newline 
+\textbf{Eigenschaften:} extrovertiert \& unternehmenslustig \newline
+\textbf{Beschäftigung:} BWL Studentin \newline
+\textbf{Hobbys:} Shopping, Fotografie, Mit Freunden treffen \newline
+
+\noindent Larissa muss immer das neuste haben. Egal ob Kleidung, Schmuck oder Elektronik. Sie möchte ungern das Produkt von gestern besitzen, sondern immer das neueste, damit Sie es gleich ihren Freunden zeigen kann. Sie findet eine App sehr praktisch mit der sie Produkte abspeichern kann um sie hinterher wieder zu finden. Außerdem schaut sie sich gerne Fotos von anderen Nutzern zu bestimmten Produkten an, sowie deren Bewertungen um hinterher zu wissen, wie diese die Produkte finden. \newline 
+
+\noindent \textbf{Nutzer 3: \newline}
+\textbf{Name:} Thorsten \newline
+\textbf{Alter:} 35 Jahre \newline 
+\textbf{Status:} ledig \newline 
+\textbf{Eigenschaften:} vielbeschäftigt, hat kaum Zeit \newline
+\textbf{Beschäftigung:} Geschäftsmann \newline
+\textbf{Hobbys:} Keine \newline
+
+\noindent Thorsten hat gar keine Zeit um sich stundenlang im Internet das beste Angebot für zum Beispiel ein neues Handy herauszusuchen. Er ist vielbeschäftigt und möchte daher eine App benutzen, welche ihm anzeigt, bei welchem Geschäft das Produkt gerade am günstigsten ist. Wenn ein Produkt stark reduziert ist beziehungsweise im Angebot ist möchte er automatisch eine Benachrichtung erhalten.
+
+\paragraph{Verkäufer} \mbox{} \newline
+
+\noindent \textbf{Nutzer 4: \newline}
+\textbf{Name:} Lukas \newline
+\textbf{Alter:} 32 Jahre \newline 
+\textbf{Status:} ledig \newline 
+\textbf{Eigenschaften:} handwerklich begabt \newline
+\textbf{Beschäftigung:} Besitzer eines Möbelgeschäftes in Würzburg \newline
+\textbf{Hobbys:} Möbel entwerfen und zusammen bauen, Grillen mit Freunden \newline
+
+\noindent In den letzten Jahren läuft das Geschäft, welches Lukas betreibt immer schlechter. Die Leute bestellen meistens im Internet, oder kaufen beim Konkurrenten IKEA ein.
+Dabei sind seine Möbel selbst nach bester Handwerkskunst gefertigt und kosten auch nicht viel mehr im Vergleich zu Markenmöbeln. Lukas muss sich etwas inovatives einfallen lassen. Er würde gerne seine Möbel online anbieten, damit mehr Leute bei Ihm einkaufen. Mithilfe der App kann er seine Möbel mit Bildern integrieren, damit die Leute sie in der App finden können.
+Er hat die Möglichkeit ein individuelles 3D Model für seine Möbel zu erstellen, damit man diese in der App in Augemented Reality (AR) testen kann. \newline 
+
+\subsubsection{Content-Manager}
+
+Als Content-Manager möchte ich Updates (und Change-logs) erstellen können um die App immer auf den aktuellsten Stand zu halten, um zum Beispiel neue Produkte oder neue 3D Modelle hinzufügen zu können.
+Auch soll man in der Lage sein, die Sperrwörter liste aktualisieren zu können, um zu verhindern das illegale Produkte erstellt werden können. \newline 
 
 \subsubsection{Admin}
 
+Als Admin möchte ich Analysen erstellen können, damit ich zum Beispiel ermitteln kann, wie viele Nutzer die App benutzt haben um ein Produkt für IKEA hinzuzufügen.
+Außerdem möchte ich auf die Datenbank zugreifen können, damit ich neue Tabellen Einträge erstellen kann oder um Fehler beheben zu können. \newline 
+
 \subsection{Anforderungsanalyse}
+
+\noindent Die App muss die Produkte anhand \newline 
+
+\noindent - Eines Barcodes (Kamera) erkennen und mithilfe einer Tabelle zuordnen können \newline 
+\noindent - Ihrer Form entsprechend erkennen und zuordnen können (konzeptionell). Diese Funktion wurde nicht in der fertigen App umgesetzt. \newline 
+
+\noindent Unterscheiden können zwischen den Produkten \newline
+\noindent - zum Beispiel zwischen einer Banane und einem Apfel \newline 
+\noindent - Einfache Klassifizierer oder KI \newline
+
+\noindent Möglichkeit zum Testen von Produkten innerhalb der App  \newline 
+\noindent - Hierbei wird ein AR-Objekt erzeugt \newline
+
+\subsubsection{Anforderungen der Personas}
+
+Die Anforderungsanalyse wird nun ergänzt mit den Anforderungen, welche die Personas sich von der App vorgestellt haben. \newline 
+
+\noindent - Möglichkeit zum Speichern von Produkten in der App \newline 
+\noindent - Fotos von Produkten erstellen \newline 
+\noindent - Fotos von anderen zu einem Produkt sehen können \newline 
+\noindent - Produkt bewerten und Bewertungen einsehen können \newline 
+\noindent - Produkte in Augmented Reality (AR) testen \newline 
+\noindent - Preisvergleich (bei welchem Geschäft zurzeit am günstigsten)\newline 
+\noindent - Benachrichtigungen, wenn Produkte im Angebot sind \newline
+\noindent - Die Möglichkeit für Verkäufer Produkte einzustellen \newline 
+\noindent - Die Möglichkeit für Verkäufer eigene 3D Modelle hochzuladen \newline
 
 \newpage
 
@@ -205,6 +295,10 @@ Zum Entwickeln der App wurde hauptsächlich die Entwicklungsumgebung von Android
 \subsubsection{Wieso Google AR Core?}
 
 Googles neuestes Framework für Augmented Reality Anwendungen heist "AR Core". Im Vergleich zu einer AR Anwendung mit Unity lässt es es sich sehr einfach in die App integrieren (Als Fragment oder View in der Aktivity). Weiterhin lassen sich Modelle (.OBJ) sehr einfach mit dem Sceneform Plugin einbinden und bearbeiten. 
+
+\subsubsection{Wieso einen Barcode-Scanner?}
+
+Für Produkte, welche in einem lokalen Geschäft angeboten werden, wird meistens ein numerischer Barcode verwendet, da dieser leicht an der Kasse über das Band gezogen und gescannt werden kann um so erfasst zu werden.
 
 \subsubsection{Wieso eine MySQL Datenbank?}
 
@@ -1236,13 +1330,17 @@ Die Hilfsklasse "PriceHelper" enthält alle wichtigen Variablen und Methoden fü
 
 \subsubsection{Retrofit Schnittstelle}
 
-Die Klasse "RetrofitCRUD" stellt die Methoden für Retrofit zur Verfügung und ist die Schnittstelle zum Backend Server. \newline 
+Die Klasse "RetrofitCRUD", welche die Methoden des Interfaces "IRetrofitCRUD" implementiert, stellt die Methoden für Retrofit zur Verfügung und ist die Schnittstelle zum Backend Server. \newline 
 
 \noindent\textbf{Im Folgenden eine Übersicht der Methoden:}
 
 \noindent
 
-% todo: Übersicht der Methoden als Bild %
+\begin{figure}[h]
+\centering
+\includegraphics[width=450px]{img/retrofit_crud_method_overview.png}
+\caption{Methoden der Klasse \textbf{RetrofitCRUD}}
+\end{figure}
 
 \subsubsection{Network Monitor}
 Die Klasse "NetworkMonitor" überwacht die Netzwerkaktivität. Bei entsprechenden Änderungen werden Aktionen ausgeführt. \newline
@@ -1293,17 +1391,158 @@ Die Klasse "SendNotification" ist eine Hilfsklasse zum versenden von Benachricht
 
 \subsubsection{Layout}
 
+\paragraph{activity\_main} \mbox{} 
+
+\noindent Das Layout für die Activity "MainActivity". 
+
+\paragraph{activity\_create\_price} \mbox{} 
+
+\noindent Das Layout für die Activity "CreatePriceActivity".
+
+\paragraph{activity\_create\_product} \mbox{} 
+
+\noindent Das Layout für die Activity "CreateProductActivity".
+
+\paragraph{activity\_create\_rating} \mbox{} 
+
+\noindent Das Layout für die Activity "CreateRatingActivity".
+
+\paragraph{activity\_info} \mbox{} 
+
+\noindent Das Layout für die Activity "InfoActivity". 
+
+\paragraph{activity\_last\_scanned} \mbox{} 
+
+\noindent Das Layout für die Activity "LastScannedProductsActivity". 
+
+\paragraph{activity\_login} \mbox{} 
+
+\noindent Das Layout für die Activity "LoginActivity". 
+
+\paragraph{activity\_price\_history} \mbox{} 
+
+\noindent Das Layout für die Activity "PriceHistoryActivity". 
+
+\paragraph{activity\_product\_ar} \mbox{} 
+
+\noindent Das Layout für die Activity "ProductArActivity". 
+
+\paragraph{activity\_product\_detail} \mbox{} 
+
+\noindent Das Layout für die Activity "ProductDetailActivity". 
+
+\paragraph{activity\_product\_photo\_detail} \mbox{} 
+
+\noindent Das Layout für die Activity "ProductPhotoDetailActivity". 
+
+\paragraph{activity\_product\_photo\_gallery} \mbox{} 
+
+\noindent Das Layout für die Activity "ProductPhotoGalleryActivity". 
+
+\paragraph{activity\_product\_scan} \mbox{} 
+
+\noindent Das Layout für die Activity "ProductScanActivity". 
+
+\paragraph{activity\_product\_search} \mbox{} 
+
+\noindent Das Layout für die Activity "ProductSearchActivity". 
+
+\paragraph{activity\_profile} \mbox{} 
+
+\noindent Das Layout für die Activity "ProfileActivity". 
+
+\paragraph{activity\_register} \mbox{} 
+
+\noindent Das Layout für die Activity "RegisterActivity". 
+
+\paragraph{activity\_settings} \mbox{} 
+
+\noindent Das Layout für die Activity "SettingsActivity". 
+
+\paragraph{adapter\_view\_layout} \mbox{} 
+
+\noindent Das Layout für den Adapter "ProductListAdapter".
+
+\paragraph{search\_adapter\_view\_layout} \mbox{} 
+
+\noindent Das Layout für den Adapter "SearchListAdapter". 
+
+\paragraph{spinner\_spimple\_item} \mbox{} 
+
+\noindent Das Layout für ein Dropdown Menü. 
+
+\paragraph{list\_layout} \mbox{} 
+
+\noindent Das Layout für die Activity "ListDataActivity". Kann ignoriert werden.
+
 \subsubsection{Drawable Icons}
+
+Im Ordner "drawable" befinden sich Icons, welche innerhalb der App, beispielsweise in einem Layout, verwendet werden.
+
+\newpage
 
 \subsubsection{App Icon}
 
+Das Logo der App befindet sich auf dem Pfad ''/res/mipmap''. Mithilfe des Asset Studios in Android Studio lassen sich eigene Logos und andere Icons erstellen, ebenfalls auch Ladeanimationen. Das Logo der App wurde mit dem Asset Studio generiert und hat einen blauen Hintergrund sowie ein Drawable Icon in der Mitte (Vordergrund). Ein weiterer Vorteil ist, dass das Logo für alle verschiedenen Größen und Formate generiert wird. (z.B. auch runde Logos).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=150px]{img/app_icon.png}
+\caption{Logo der App "ProductAR"}
+\end{figure}
+
 \subsubsection{Animation}
+
+\paragraph{SplashScreen} \mbox{} \newline
+
+\noindent Hierfür werden die beiden XML Dateien "fade\_in" und "fade\_out" verwendet. Mit "fade\_out" wird der SplashScreen ausgeblendet und mit "fade\_in" der Übergang zur MainActivity eingeblendet.
+
+\paragraph{Übergang zu einer neuen Activity} \mbox{} \newline 
+
+\noindent Es gibt 2 mögliche Animationen zum Übergang zu einer neuen Activity. \newline 
+
+\noindent \textbf{Mit "slide\_in\_left" und "slide\_out\_right"} wird die neue Activity von links in das Bild geschoben und die vorherige Activity verschwindet nach rechts. \newline 
+
+\noindent \textbf{Mit "slide\_in\_right" und "slide\_out\_left"} wird die neue Activity von rechts in das Bild geschoben und die vorherige Activity verschwindet nach links. \newline 
+
+\newpage
+
+\paragraph{Laden neuer Elemente einer ListView} \mbox{} \newline
+
+\noindent Es gibt hierbei auch 2 mögliche Animationen. \newline 
+
+\noindent \textbf{Mit "load\_down\_anim"} wird ein neues Element von oben nach unten eingeschoben. \newline 
+
+\noindent \textbf{Mit "load\_up\_anim"} wird ein neues Element von unten nach oben eingeschoben. \newline 
+
 
 \subsubsection{Menu}
 
+\noindent \textbf{bottom\_nav\_menu \newline}
+\noindent Es handelt sich hierbei um das Layout für Navigationsmenü am unteren Rand des Bildschirms, welches die 3 Schaltflächen "Test Product" (links), "Scan Barcode" (Mitte), "Products" (rechts) beinhaltet. \newline 
+
+\noindent \textbf{menu\_home \newline}
+\noindent Das Layout "menu\_home" ist für das Menü zuständig, welches sich ganz oben in der App, jedoch noch unterhalb der Android Statusleiste befindet. Es wird für Nutzer, welch sich nicht in der App angemeldet haben angezeigt. Menüelemente, welche direkt angezeigt werden sind: Suchsymbol, Nutzersymbol. Weiterhin gibt es ein Dropdown Menü, welches folgende Elemente beeinhaltet: "Settings", "Info" und "Exit". \newline
+
+\noindent \textbf{menu\_logged\_in \newline}
+\noindent Das Layout "menu\_logged\_in" ist für das Menü zuständig, welches sich ganz oben in der App, jedoch noch unterhalb der Android Statusleiste befindet. Es wird für Nutzer, welch sich eingeloggt haben angezeigt. Menüelemente, welche direkt angezeigt werden sind: Suchsymbol, Nutzersymbol und Nutzername. Weiterhin gibt es ein Dropdown Menü, welches folgende Elemente beeinhaltet: "Settings", "Info", "Logout" und "Exit". \newline
+
+\newpage 
+
 \subsubsection{Assets}
 
+Der Ordner "Assets" befindet sich außerhalb des Ressource Ordners. Dennoch habe ich ihn mit in diese Kategorie genommen, da hier wichtige Ressourcen liegen. Hier werden die 3D Modelle für die AR Szene ("ProductArActivity" und "ProductScanActivity") gespeichert. \newline 
+
+\noindent \textbf{Als Platzhalter} falls kein Produkt zum Testen ausgewählt wurde, wird in der "ProductArActivity" oder "ProductScanActivity" ein leerer Einkaufswagen in AR angezeigt. \newline 
+\begin{figure}[h]
+\centering
+\includegraphics[width=320px]{img/cart.JPG}
+\caption{Einkaufswagen in AR}
+\end{figure}
+
 \subsubsection{Values}
+
+In diesem Ordner sind Dateien, welche String Variablen oder Konstanten enthalten, Dimensions Vorgaben, Farb und Style Vorgaben. Hier kann beispielsweise ein API Key gespeichert werden, falls in Zukunft die Google Maps API in der App verwendet wird.
 
 \newpage
 
@@ -1464,11 +1703,85 @@ Auf dem Hauptpfad befindet sich eine index.php \newline
 
 \subsection{Store Eintrag}
 
+Die App ist unter folgendem Link im Google Play Store erreichbar: \newline \url{https://play.google.com/apps/testing/de.nimoo.productar}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=150px]{img/store_screenshot.png}
+\caption{Screenshot des Eintrags im Google Play Store}
+\end{figure}
+
+\paragraph{Kurzbeschreibung} \mbox{} \newline 
+\noindent Eine App mithilfe der man Produkte scannen und testen kann 
+
+\paragraph{Beschreibung} \mbox{} \newline 
+\noindent Die App hat folgende Features: \newline 
+
+\noindent - Barcodes von Produkten scannen \newline 
+\noindent - Produkte lokal hinzufügen \newline 
+\noindent - Informationen über Produkte erhalten \newline 
+
+\noindent - Produkte Testen [BETA] \newline 
+
+\noindent Bald im Play Store verfügbar! \newline
+
 \subsection{Screenshots}
+
+Im folgenden die Screenshots, welche dem Eintrag im Google Play Store angefügt wurden. \newline 
+
+\begin{figure}[h]
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_1.png}
+      \caption{MainActivity}
+   \end{minipage}
+   \hspace{.1\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_2.png}
+      \caption{Products}
+   \end{minipage}
+   \hspace{.1\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_3.png}
+      \caption{Details}
+   \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_4.png}
+      \caption{AR}
+   \end{minipage}
+   \hspace{.1\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_5.png}
+      \caption{Photos}
+   \end{minipage}
+   \hspace{.1\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_6.png}
+      \caption{Create}
+   \end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_7.png}
+      \caption{Search}
+   \end{minipage}
+   \hspace{.1\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[b]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=100px]{img/screenshots/screenshot_8.png}
+      \caption{Info}
+   \end{minipage}
+\end{figure}
 
 \subsection{Alpha Test}
 
 \subsection{Beta Test}
+
+\subsection{Testen im Ikea in Würzburg}
 
 
 \newpage
@@ -1477,37 +1790,272 @@ Auf dem Hauptpfad befindet sich eine index.php \newline
 
 \subsection{Erweiterungen}
 
-\subsection{Was könnte in Zukunft besser gemacht werden?}
+\noindent Die App kann dahingehend erweitert werden, dass AR Modelle während der Laufzeit aus dem Internet geladen und direkt in der Welt platziert werden können. Aktuell ist hierbei die Ladezeit / Latenz ein großes Problem, die das Modell zum herunterladen benötigt, weshalb das Feature nicht mehr rechtzeitig in die fertige App übernommen werden konnte. \newline 
 
-Die ProductDetailActivity ist sehr überladen mit Informationen und Buttons. Ein klares Design und 
+\noindent Für Verkäufer könnte ein Webinterface implementiert werden, auf welchen eine Liste an Produkten im csv Format hochgeladen werden kann. Eine weitere Fuktion des Webinterfaces wäre das Hochladen von 3D Modelle für die einzelnen Produkte. \newline
+
+\noindent Eine wichtige Erweiterung für die App könnte das Erstellen von einzelnen Einkaufslisten sein, in die mehrere Produkte gespeichert werden können. \newline 
+
+\noindent Eine weitere Funktion wäre, dass der Nutzer sein erstelltes Konto wieder löschen kann. Hierbei wird der Nutzer zu erst gefragt ob er denn wirklich seinen Account auch wirklich löschen möchte. Dies ist soweit in der App implementiert, jedoch gibt es aktuell keine Backend Funktion, welche dies auch tatsächlich umsetzt. \newline 
+
+\noindent Ab einer gewissen Nutzerzahl macht es Sinn, dass ein Supportsystem eingeführt wird. \newline 
+
+\subsection{Optimierung \& Verbesserung}
+
+\noindent Die ProductDetailActivity ist sehr überladen mit Informationen und Buttons. Ein klares Design und eine Simplifizierung der Funktionen könnten die User Experience verbessern. \newline
+
+\noindent Auf Seite des PHP Backends könnte der Bilderupload optimiert werden. Man könnte für ein Produktbild sowohl ein Bild in Originalgröße als auch ein Thumbnail generieren, welches dann für die ListView genutzt werden kann, damit Elemente schneller geladen werden können. \newline 
+
+\noindent Beim Abfragen von allen Produkten (GET ../products/) könnte irgendwann der Fall eintreten, dass zu viele Produkte in der Datenbank vorhanden sind. In diesem Fall könnte Pagination Abhilfe schaffen, da nur eine gewisse Anzahl an Produkten angefragt werden. \newline  
+
+\noindent Bei der Abfrage des Preises in der ProductDetailActivity, wird kurz danach ein 2ter Request gestellt, welcher den Shop abfrägt. Man könnte dies vermeiden, in dem man den Shop als Subressource in den Preis einbettet. \newline 
+
+\noindent Bei einer noch größeren Menge an Daten, welche erzeugt werden, wenn die App rasch an Nutzer gewinnt, könnte man überlegen, ob die Datenbank auf mehrere Server aufgeteilt werden sollte (horizontale Skalierung). Dies kann entweder mit Partitioning oder mit Sharding umgesetzt werden. Mithilfe eines Load Balancers lässt sich die Last auf einzelne Server aufteilen. \newline 
+
+\noindent Softwaretechnisch könnte man mit Einsatz von Map/Reduce ebenfalls eine weitere Optimierung erzielen.
 
 \newpage
 
-\section{Wirtschaftlichkeitsbetrachtung}
 
-\newpage
+%\section{Wirtschaftlichkeitsbetrachtung}
+
+%\newpage
 
 \section{Fazit}
 
 
-\newpage
 
-\section{Verwendete Technologie, Frameworks und Software}
-
-
-\newpage
-
-\section{Verlinkung Repositories}
-
-
-\newpage
-
-\section{Verlinkung Tutorials}
-
+\subsubsection{Was könnte in Zukunft besser gemacht werden?}
 
 \newpage
 
 \section{Quellenangabe}
+
+\subsection{Verwendete Technologie, Frameworks und Software}
+
+\noindent Android Studio (Primäre Entwicklungsumgebung)
+
+\noindent Link: \textit{\url{https://developer.android.com/studio} \newline}
+
+\noindent IntelliJ IDE  (Entwicklungsumgebung)
+
+\noindent Link: \textit{\url{https://www.jetbrains.com/idea/} \newline}
+
+\noindent Android SDK \newline
+\noindent Android Emulator \newline
+\noindent Android 9.0 (Testen) \newline 
+
+\noindent Java 8 (Entwicklung und Veröffentlichung)
+
+\noindent Link: \textit{\url{https://www.java.com/de/download/faq/java8.xml} \newline}
+
+\noindent Java JDK 8 
+
+\noindent Link: \textit{\url{https://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html} \newline}
+
+\noindent Gradle 3.4.2 
+
+\noindent Link: \textit{\url{https://gradle.org/} \newline}
+\noindent Link: \textit{\url{https://docs.gradle.org/current/userguide/userguide.html} \newline}
+
+\noindent Google Play Services 16 
+
+\noindent Link: \textit{\url{https://developers.google.com/android/guides/overview} \newline}
+
+\noindent Google AR Core
+
+\noindent Link: \textit{\url{https://developers.google.com/ar/} \newline}
+\noindent Link: \textit{\url{https://developers.google.com/ar/discover/} \newline}
+
+\noindent Google AR Sceneform
+
+\noindent Link: \textit{\url{https://developers.google.com/ar/develop/java/sceneform/} \newline}
+\noindent Link: \textit{\url{https://developers.google.com/ar/develop/java/sceneform/samples} \newline}
+
+\noindent Google AR Sceneform Tools Plugin für Android Studio / IntelliJ
+
+\noindent Link: \textit{\url{https://plugins.jetbrains.com/plugin/10698-google-sceneform-tools-beta-} \newline}
+
+\newpage
+
+\noindent Google Developer Console 
+
+\noindent Link: \textit{\url{https://console.developers.google.com/} \newline}
+
+\noindent Google Play Console ( Veröffentlichung von Beta Versionen )
+
+\noindent Link: \textit{\url{https://play.google.com/apps/publish/} \newline}
+
+\noindent ZXing Barcode Scanner
+
+\noindent Link: \textit{\url{https://github.com/zxing/zxing} \newline}
+
+\noindent Retrofit2 (Anbindung zur Rest Api)
+
+\noindent Link: \textit{\url{https://square.github.io/retrofit/} \newline}
+\noindent Link: \textit{\url{https://github.com/square/retrofit} \newline}
+
+\noindent Gson ((De-)Serialisierung von Java Objekten in JSON)
+
+\noindent Link: \textit{\url{https://github.com/google/gson} \newline}
+
+\noindent Picasso (Bibliothek zum Herunterladen von Bilder)
+
+\noindent Link: \textit{\url{https://square.github.io/picasso/} \newline}
+\noindent Link: \textit{\url{https://github.com/square/picasso} \newline}
+
+\noindent Glide (Bibliothek zum Herunterladen von Bilder)
+
+\noindent Link: \textit{\url{https://bumptech.github.io/glide/} \newline}
+\noindent Link: \textit{\url{https://github.com/bumptech/glide} \newline}
+
+\noindent SQLite (Datenbankverwaltungssystem)
+
+\noindent Link: \textit{\url{https://www.sqlite.org/index.html} \newline}
+\noindent Link: \textit{\url{https://www.sqlite.org/docs.html} \newline}
+
+\noindent Linux Ubuntu (Remote Server) 
+
+\noindent Link: \textit{\url{https://ubuntu.com/} \newline}
+
+\noindent Plesk (Oberfläche Server)
+
+\noindent Link: \textit{\url{https://www.plesk.com/} \newline}
+
+\noindent Apache (Webserver)
+
+\noindent Link: \textit{\url{http://www.apache.org/} \newline} 
+\noindent Link: \textit{\url{https://httpd.apache.org/} \newline}
+\noindent Link: \textit{\url{https://httpd.apache.org/docs/} \newline}
+
+\noindent PHP (Rest Api und Backend) 
+
+\noindent Link: \textit{\url{https://www.php.net/manual/de/intro-whatis.php} \newline}
+
+\newpage
+
+\noindent phpMyAdmin (Webinterface Datenbank)
+
+\noindent Link: \textit{\url{https://www.phpmyadmin.net/} \newline}
+
+\noindent MySQL (Datenbankverwaltungssystem) 
+
+\noindent Link: \textit{\url{https://www.mysql.com/de/} \newline}
+
+\noindent Git (Versionsverwaltung)
+
+\noindent Link: \textit{\url{https://git-scm.com/doc} \newline}
+
+\noindent Bitbucket (Repository)
+
+\noindent Link: \textit{\url{https://www.atlassian.com/de/software/bitbucket} \newline}
+\noindent Link: \textit{\url{https://bitbucket.student.fiw.fhws.de:8443/dashboard} \newline}
+
+\noindent Github (Repository)
+
+\noindent Link: \textit{\url{https://github.com/} \newline}
+\noindent Link: \textit{\url{https://github.com/maxr2011/} \newline}
+
+\noindent Trello (Aufgabenverwaltung) 
+
+\noindent Link: \textit{\url{https://trello.com/de} \newline}
+
+\noindent OneDrive (Cloud-Speicherung)
+
+\noindent Link: \textit{\url{https://onedrive.live.com/about/de-de/} \newline}
+
+\noindent Draw.io (Skizzenanfertigung)
+
+\noindent Link: \textit{\url{https://www.draw.io/} \newline}
+
+\noindent Putty (SSH Verbindung zum Remote Server)
+
+\noindent Link: \textit{\url{https://www.putty.org/} \newline}
+
+\noindent WinSCP (DateiBrowser um auf Server Dateien hochzuladen / zu verändern)
+
+\noindent Link: \textit{\url{https://winscp.net/eng/index.php} \newline}
+
+\noindent HeidiSQL (SQL Client um Abfragen auf dem Server durchzuführen) 
+
+\noindent Link: \textit{\url{https://www.heidisql.com/} \newline}
+
+\noindent Postman (Testen der Rest Schnittstelle)
+
+\noindent Link: \textit{\url{https://www.getpostman.com/} \newline}
+
+\noindent Google Poly (Beziehen der 3D Modelle) 
+
+\noindent Link: \textit{\url{https://poly.google.com/} \newline}
+
+
+
+\newpage
+
+\subsection{Verlinkung Repositories}
+
+Die folgenden Repositories sind private Repositories auf Bitbucket oder GitHub. \newline
+
+\noindent \textbf{App: ProductAR}
+
+\noindent Bitbucket: \textit{\url{https://bitbucket.student.fiw.fhws.de:8443/users/k40216/repos/productar/} \newline}
+\noindent GitHub: \textit{\url{https://github.com/maxr2011/productar} \newline }
+
+\noindent \textbf{PHP Backend / Rest Api}
+
+\noindent Bitbucket: \textit{\url{https://bitbucket.student.fiw.fhws.de:8443/users/k40216/repos/productar_php_backend/} \newline}
+\noindent GitHub: \textit{\url{https://github.com/maxr2011/product_ar_backend} \newline}
+
+\noindent \textbf{Dokumentation in LaTeX Quellcode und JavaDoc}
+
+\noindent GitHub: \textit{\url{https://github.com/maxr2011/productar_ducumentation} \newline}
+
+\noindent \textbf{SQL Backup}
+
+\noindent Bitbucket: \textit{\url{https://bitbucket.student.fiw.fhws.de:8443/users/k40216/repos/productar_sql_backup/} \newline}
+\noindent GitHub: \textit{\url{https://github.com/maxr2011/productar_sql_backup} \newline}
+
+\newpage
+
+\subsection{Verlinkung Tutorials}
+
+\noindent \textbf{Google AR Core Tutorial (inklusive Playlist)}
+
+\noindent \textit{\url{https://www.youtube.com/watch?v=EWXGaypl2ms\&list=PLsOU6EOcj51cEDYpCLK\_bzo4qtjOwDWfW\&index=2} \newline}
+
+\noindent \textbf{QR und Barcode Scanner Tutorial}
+
+\noindent \textit{\url{https://www.youtube.com/watch?v=otkz5Cwdw38} \newline}
+
+\noindent \textbf{SQLite Database Tutorial}
+
+\noindent \textit{\url{https://www.youtube.com/watch?v=KUq5wf3Mh0c} \newline}
+
+\noindent \textbf{Coding in Flow Tutorials}
+
+\noindent \textit{\url{https://www.youtube.com/channel/UC_Fh8kvtkVPkeihBs42jGcA/playlists} \newline}
+
+\noindent \textbf{TextInputLayout Tutorial}
+
+\noindent \textit{\url{https://www.youtube.com/watch?v=veOZTvAdzJ8} \newline}
+
+\noindent \textbf{Retrofit Tutorial (inklusive Playlist)}
+
+\noindent \textit{\url{https://www.youtube.com/watch?v=4JGvDUlfk7Y\&list=PLrnPJCHvNZuCbuD3xpfKzQWOj3AXybSaM} \newline}
+
+\noindent \textbf{CodingWithMitch Tutorials}
+
+\noindent \textit{\url{https://www.youtube.com/channel/UCoNZZLhPuuRteu02rh7bzsw/playlists} \newline}
+
+\noindent \textbf{SQLite Database Tutorial}
+
+\noindent \textit{\url{https://www.youtube.com/watch?v=aQAIMY-HzL8} \newline}
+
+\noindent \textbf{ListView Tutorial}
+
+\noindent \textit{\url{https://www.youtube.com/watch?v=cKUxiqNB5y0} \newline}
+
+\newpage
 
 
 \end{document}
