@@ -969,7 +969,7 @@ Die Klasse "ProductListAdapter" stellt eine Adapterklasse dar für die Produktel
 
 \noindent\textbf{Innere Klasse ViewHolder}
 
-\noindent ViewHolder Klasse, welche folgendes enthält: TextView name TextView barcode TextView scannedAt ImageView image \newline 
+\noindent ViewHolder Klasse, welche folgendes enthält: TextView name, TextView barcode, TextView scannedAt, ImageView image. \newline 
 
 \noindent\textbf{Methode getView(int position, \newline                                android.view.View convertView, android.view.ViewGroup parent)}
 
@@ -980,11 +980,11 @@ Die Klasse "SearchListAdapter" stellt eine Adapterklasse dar für die Produktele
 
 \noindent\textbf{Innere Klasse ViewHolder}
 
-\noindent ViewHolder Klasse, welche folgendes enthält: TextView name TextView barcode TextView scannedAt ImageView image \newline 
+\noindent ViewHolder Klasse, welche folgendes enthält: TextView name, TextView category, RatingBar rating, ImageView image. \newline 
 
 \noindent\textbf{Methode getView(int position, \newline                                android.view.View convertView, android.view.ViewGroup parent)}
 
-\noindent Die Methode "getView" wird von der Klasse "ArrayAdapter" überschrieben. Zuerst werden die Produktinformationen in lokale Variablen gespeichert. Als nächstes wird ein Produkt erzeugt mit den entsprechenden Variablen. Weiterhin wird ein ViewHolder initialisiert. Dieser wird in den nächsten Schritten mit den Informationen des Produktes gefüllt. Es wird eine Animation für das Laden von weiteren Elementen festgelegt. Das Bild des Produktes wird in die dafür vorgesehene ImageView geladen. \newline 
+\noindent Die Methode "getView" wird von der Klasse "ArrayAdapter" überschrieben. Zuerst werden die Produktinformationen in lokale Variablen gespeichert. Als nächstes wird ein Produkt erzeugt mit den entsprechenden Variablen. Weiterhin wird ein ViewHolder initialisiert. Dieser wird in den nächsten Schritten mit den Informationen des Produktes gefüllt. Es wird eine Animation für das Laden von weiteren Elementen festgelegt. Das Bild des Produktes wird in die dafür vorgesehene ImageView geladen. Die durchschnittliche Bewertung des Produkts wird berechnet und der Wert wird in der RatingBar des ViewHolders gesetzt. \newline 
 
 \paragraph{PhotoAdapter}
 Die Klasse "ProductListAdapter" stellt eine Adapterklasse dar für die Fotos, welche in der "ProductPhotoGalleryActivity" in einer GridView angezeigt werden. \newline 
