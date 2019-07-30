@@ -1393,83 +1393,83 @@ Die Klasse "SendNotification" ist eine Hilfsklasse zum versenden von Benachricht
 
 \paragraph{activity\_main} \mbox{} 
 
-\noindent Das Layout für die Activity "MainActivity". 
+\noindent Das Layout für die Activity "MainActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt. Weiterhin gibt es ein TextView, welches folgenden Text beinhaltet: "Scan a Bar Code". In der Mitte befindet sich eine ImageView in der ein Platzhalter eingefügt ist. Nach dem Scan kann hier das Produktbild eingefügt werden. Schließlich gibt es noch einen Button "Scan Now" mit dem die Methode "scanNow" aufgerufen wird. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_create\_price} \mbox{} 
 
-\noindent Das Layout für die Activity "CreatePriceActivity".
+\noindent Das Layout für die Activity "CreatePriceActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("Add Price"). Als nächstes gibt es einen TextInputLayout, in dem der Preis numerisch angegeben werden kann. Das nächste Element ist ein Dropdown Menü, welches die Währung bestimmt. Weiterhin gibt es ein TextInputLayout für das Geschäft. Zum Schluss ist ein grüner Button mit folgenden Text "ADD". Am unteren Bildschirmrand befindet sich die Navigation-Bar. 
 
 \paragraph{activity\_create\_product} \mbox{} 
 
-\noindent Das Layout für die Activity "CreateProductActivity".
+\noindent Das Layout für die Activity "CreateProductActivity". Als erstes existiert eine TextView ("Create a new Product"). Als nächstes gibt es eine TextView ("Barcode") mit einem EditText in dem der Barcode eingetragen werden kann. Als nächstes Element gibt es eine TextView ("Name") mit einem EditText in der der Name des Produktes eingetragen werden kann. Weiterhin gibt es ein Dropdown Menü mit TextView ("Category") in welcher eine Produktkategorie ausgewählt werden kann. Als nächstes Kann mit dem Button "Take Photo" ein Bild aufgenommen oder mit dem Button "Open Gallery" ein Bild aus der lokalen Fotogallerie ausgewählt werden. Zum Schluss gibt es noch einen grünen Button "Create Product". Dieser erstellt das Produkt. Am unteren Bildschirmrand befindet sich die Navigation-Bar. 
 
 \paragraph{activity\_create\_rating} \mbox{} 
 
-\noindent Das Layout für die Activity "CreateRatingActivity".
+\noindent Das Layout für die Activity "CreateRatingActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("Rate Product"). Als nächstes gibt es eine TextView, welche einen Platzhalter enthält, in welcher der Produktname angezeigt wird. Als nächstes Element gibt es eine TextView "Stars" mit einer RatingBar, welche zum Bewerten des Produktes verwendet wird. Weiterhin gibt es eine TextView ("Review"), welches von einem EditText gefolgt wird, in dem ein Review für das Produkt verfasst werden kann. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_info} \mbox{} 
 
-\noindent Das Layout für die Activity "InfoActivity". 
+\noindent Das Layout für die Activity "InfoActivity". Ganz oben befindet sich eine ImageView mit dem App Logo. als nächstes kommt eine TextView mit dem Namen der App. Darunter befindet sich eine weitere TextView, welche einen Platzhalter für die App Version enthält. Darunter eine TextView mit dem Namen des Autors. Schließlich gibt es noch eine TextView mit der Matrikelnummer und der E-Mail Adresse des Autors. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_last\_scanned} \mbox{} 
 
-\noindent Das Layout für die Activity "LastScannedProductsActivity". 
+\noindent Das Layout für die Activity "LastScannedProductsActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("Last scanned Products"). Darunter befindet sich direkt die ListView, welches die Produkte enthält. Weiterhin gibt es einen grünen FloatingActionButton um ein Produkt neu anzulegen. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_login} \mbox{} 
 
-\noindent Das Layout für die Activity "LoginActivity". 
+\noindent Das Layout für die Activity "LoginActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("Login"). Es gibt ein TextInputLayout für den Benutzernamen, welches auf 25 Zeichen begrenzt ist. Darunter ist ein TextInputLayout für das Passwort, welches jedoch die Zeichen ausblendet. Darunter gibt es eine CheckBox mit dem Label "Stay logged in". Schließlich gibt es zwei Buttons, einen gründen "Login" Button und einen normalen "Create Account" Button. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_price\_history} \mbox{} 
 
-\noindent Das Layout für die Activity "PriceHistoryActivity". 
+\noindent Das Layout für die Activity "PriceHistoryActivity". Es wird ein TextView angezeigt "Not enough data." wenn nicht genügend Daten vorhanden sind. Ansonsten gibt es noch eine GraphView, welche den Preisverlauf anzeigt. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_product\_ar} \mbox{} 
 
-\noindent Das Layout für die Activity "ProductArActivity". 
+\noindent Das Layout für die Activity "ProductArActivity". Das Hauptelement ist das AR Fragment, welches vom Typ "com.google.ar.sceneform.ux.ArFragment" ist. dies füllt die ganze Fläche komplett aus. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_product\_detail} \mbox{} 
 
-\noindent Das Layout für die Activity "ProductDetailActivity". 
+\noindent Das Layout für die Activity "ProductDetailActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("Product Details"). Darunter gibt es folgende TextViews: Label für Name, Name mit Platzhalter "\_\_name\_of\_product\_\_", Label für Kategorie, Kategorie mit Platzhalter "\_\_catg\_of\_product\_\_", Label für Bewertung, Platzhalter "Not rated yet.". Als nächstes Element ist die TextView für das Produktbild "Image" und die ImageView darunter, welche einen Platzhalter für das Produktbild beinhaltet. In der Activity wird das entsprechende Produktbild hier eingefügt. Als nächstes kommmt der Button um weitere Produktfotos anzuschauen. Es gibt auch zwei weitere Buttons, jedoch sind diese nur sichtbar, wenn der Nutzer eingeloggt ist: "Take Photo" um ein Foto aufzunehmen und hochzuladen und "open gallery" um die Fotogallerie zu öffnen und ein Foto auszuwählen und anschließend hochzuladen. Darunter ist die TextView als Label für den Barcode und der Barcode, welcher als Platzhalter sich darunter befindet "\_\_barcode\_\_". Darunter befindet sich das Label für den Preis mit dem Preis als Platzhalter darunter "No current price.". Weiterhin gibt es 2 Buttons "Add Price" um einen Preis hinzufügen und "Price History" um sich den Preisverlauf des Produktes anzuschauen. Als nächstes ist das Label für das Datum des Scans inklusive Platzhalter "\_\_timestamp\_\_". Anschließend gibt es 4 Buttons. "Test in AR" in blau, um das Produkt in AR Testen zu können. "Share" um das Produkt zu teilen. "Delete" um das Produkt lokal löschen zu können. Der Button "Rate" wird nur angezeigt, wenn der Nutzer eingeloggt ist und befindet sich zwischen "Test in AR" und "Share". Er ist dazu zuständig, damit der Nutzer das Produkt bewerten kann. Zum Schluss gibt es noch eine TextView, welche rechtsbündig verläuft und die Anzahl der Scans im folgenden Format anzeigt "7 mal gescannt". Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_product\_photo\_detail} \mbox{} 
 
-\noindent Das Layout für die Activity "ProductPhotoDetailActivity". 
+\noindent Das Layout für die Activity "ProductPhotoDetailActivity". Als Hauptelement wird hier eine ImageView verwendet, welches das Bild in voller Größe anzeigt. Weiterhin gibt es 3 FloatingActionButtons, ein roter zum löschen des Bildes, welcher jedoch nur angezeigt wird, wenn das Bild vom Nutzer selbst erstellt wurde. Ein blauer um das Bild zu teilen. Der letzte ist grau und ist dafür da, dass das Bild heruntergeladen werden kann. Alle FloatingActionButtons befinden sich am rechten unteren Bildschirmrand. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_product\_photo\_gallery} \mbox{} 
 
-\noindent Das Layout für die Activity "ProductPhotoGalleryActivity". 
+\noindent Das Layout für die Activity "ProductPhotoGalleryActivity". Als Hauptelement wird hier eine GridView verwendet, welche 3 Bilder nebeneinander in einer Reihe aufnehmen kann. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_product\_scan} \mbox{} 
 
-\noindent Das Layout für die Activity "ProductScanActivity". 
+\noindent Das Layout für die Activity "ProductScanActivity". Das Hauptelement ist das AR Fragment, welches vom Typ "de.nimoo.productar.fragments.CustomArFragment" ist. dies füllt die ganze Fläche komplett aus. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_product\_search} \mbox{} 
 
-\noindent Das Layout für die Activity "ProductSearchActivity". 
+\noindent Das Layout für die Activity "ProductSearchActivity". Am oberen Bildschirmrand befindet sich ein EditText, welches eine Suchleiste darstellt. Unterstrichen wird dies noch einmal mit einer ImageView, welche sich am linken Rand des EditTextes befindet und ein Drawable in Form einer Lupe enthält. Darunter befindet sich eine ListView, in welches die Suchelemente geladen werden. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_profile} \mbox{} 
 
-\noindent Das Layout für die Activity "ProfileActivity". 
+\noindent Das Layout für die Activity "ProfileActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("User Profile"). Darunter ist sind weitere TextViews: Label für Username, Username und Label für E-Mail, E-Mail. Darunter ist das Label für das Profilbild "Profile Image", welches sich direkt darunter befindet. Für das Profilbild wurde ebenfalls wieder ein Platzhalter verwendet, welcher angezeigt wird, falls der Nutzer kein Bild hat. Darunter ist ein Button "Upload Image" welcher die Fotogallerie öffnet um ein neues Profilbild auszuwählen. Darunter ist ein roter Button "Delete Account" mit dem der Nutzer sein Konto löschen kann. Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_register} \mbox{} 
 
-\noindent Das Layout für die Activity "RegisterActivity". 
+\noindent Das Layout für die Activity "RegisterActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("Create Account"). Darunter gibt es ein TextInputLayout für die E-Mail. Als nächstes Element gibt es einen TextInputLayout für den Nutzernamen, welches auf 25 Zeichen begrenzt ist. Darunter sind noch einmal 2 TextInputLayout Elemente, welches für das Passwort und zum Wiederholen des Passworts gedacht ist. Bei der Eingabe werden die Zeichen ausgeblendet. Darunter ist ein grüner Button "Create Account". Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{activity\_settings} \mbox{} 
 
-\noindent Das Layout für die Activity "SettingsActivity". 
+\noindent Das Layout für die Activity "SettingsActivity". Es gibt ein TextView, welches die Überschrift der Activity darstellt ("Settings"). Als nächstes gibt es eine TextView, welche eine neue Kategorie darstellt "AR Settings". Das erste Element ist eine TextView "AR Marker" und ein Switch. Darunter befindet sich zwei TextViews, welche die API Version angeben. Das nächste Element ist eine TextView "Show downloaded AR Models" mit einem Button, welcher die gespeicherten AR Modelle anzeigt. Als nächstes gibt es eine TextView, welche eine neue Kategorie darstellt "Notifications". Das erste Element ist eine TextView "SpecialDeals" mit einem Switch. Als nächstes kommt ein TextView "Deal \%" mit einem Dropdown Menü. Als letztes in der Kategorie gibt es noch das TextView "Interval" mit einem Dropdown Menü. Die Letzte Kategorie ist "General Info". Hier gibt es ein TextView "TotalScans" und eines rechts daneben, welches die Anzahl der aller Scans insgesamt anzeigt. Zum Schluss gibt es noch eine TextView mit grauer Schrift "(c) 2019 ProductAR". Am unteren Bildschirmrand befindet sich die Navigation-Bar.
 
 \paragraph{adapter\_view\_layout} \mbox{} 
 
-\noindent Das Layout für den Adapter "ProductListAdapter".
+\noindent Das Layout für den Adapter "ProductListAdapter". Links befindet sich eine ImageView mit einem Platzhalter für das Produktbild. In der Mitte ist eine TextView, welche für den Namen des Produktes bestimmt ist. Auf der rechten Seite gibt es 2 TextViews, welche sich untereinander befinden, eine für den Barcode und eine für den Timestamp.
 
 \paragraph{search\_adapter\_view\_layout} \mbox{} 
 
-\noindent Das Layout für den Adapter "SearchListAdapter". 
+\noindent Das Layout für den Adapter "SearchListAdapter". Links befindet sich eine ImageView mit einem Platzhalter für das Produktbild. In der Mitte ist eine TextView, welche für den Namen des Produktes bestimmt ist. Auf der rechten Seite gibt es 2 Elemente untereinander. Eine TextView, welche für die Produktkategorie bestimmt ist und eine RatingBar, welche die durchschnittliche Bewertung für ein Produkt nur anzeigt.
 
 \paragraph{spinner\_spimple\_item} \mbox{} 
 
-\noindent Das Layout für ein Dropdown Menü. 
+\noindent Das Layout für ein einfaches Dropdown Menü. 
 
 \paragraph{list\_layout} \mbox{} 
 
@@ -1779,10 +1779,15 @@ Im folgenden die Screenshots, welche dem Eintrag im Google Play Store angefügt 
 
 \subsection{Alpha Test}
 
+Zuerst wurde ein geschlossener Track für den Alpha Test erstellt. Nur bestimmte Leute, welche per E-Mail zu dem Test eingeladen werden, können daran teilnehmen.
+
 \subsection{Beta Test}
+
+Der Betatest ist offen für jeden, der den Link zur App besitzt. Er wurde am 27.06.2019 eingeführt. 
 
 \subsection{Testen im Ikea in Würzburg}
 
+Zum Testen der App wurden einige Produkte im Ikea eingescannt und Fotos sowie Preise hinzugefügt. Dies wurde mit 2 Smartphones (Samsung Galaxy S8) getestet und jeweils in einem mobilen Netz oder im Ikea internen Wlan. Ziel war es herauszufinden, wie schnell Produkte online verfügbar sind, so dass der andere sie wieder scannen kann und wie schnell die Bilder, welche man von den Produkten angefertigt hat, laden. Hierbei ist man zu dem Ergebnis gekommen, dass die Bilder relativ langsam übertragen werden, da sie vom Smartphone in einer relativ guten Qualität geschossen werden und daher eine erhöhte Dateigröße aufweisen.
 
 \newpage
 
@@ -1823,9 +1828,17 @@ Im folgenden die Screenshots, welche dem Eintrag im Google Play Store angefügt 
 
 \section{Fazit}
 
+\noindent Die Verwendung eines Frameworks (zum Beispiel Springboot) für die Erstellung der Rest Api, welche die benötigten Methoden bereits mitliefert, hätte einiges an Zeit und Arbeit einsparen können. \newline 
 
+\noindent Beim Erstellen der App hätte man von Anfang an mit Test-Driven-Development arbeiten können, da man so eine größere Sicherheit reinbringen hätte können und man Fehler einfacher lokalisieren könnte, was erheblich Zeit einsparen könnte. \newline 
 
-\subsubsection{Was könnte in Zukunft besser gemacht werden?}
+\noindent Letztendlich lebt die App von den Nutzern, was ein weiteres Problem darstellt: \newline Welcher Käufer nutzt die App, wenn kaum Content / Produkte vorhanden sind? Im Gegensatz dazu: Welcher Käufer möchte Produkte in der App anbieten, wenn keine solide Nutzerbasis vorhanden ist? Hier muss relativ früh ein Ausgleich geschaffen werden. 
+
+\noindent Der Beta Test hat dies ebenfalls noch einmal bestätigt. Nutzer sind hier selbst verantwortlich um Produkte in die App einzustellen. \newline 
+
+\noindent Insgesamt, hat sich dieses Projekt sehr gut geeignet um neue Erfahrungen zu sammeln im Bereich der Android Entwicklung und vor allem die Möglichkeiten mit neuen Technologien und Frameworks zu arbeiten, hat sich als sehr hilfreich herausgestellt. \newline
+
+\noindent In diesem Fall steht die Entscheidung, lieber eine neue AR Technologie zu verwenden über der Entscheidung ältere Android Versionen weiterhin zu unterstützen. \newline
 
 \newpage
 
