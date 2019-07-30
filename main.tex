@@ -205,6 +205,8 @@ Ursprünglich war geplant, dass die Daten ausschließlich auf dem Server in eine
 
 \subsection{Anfängliche Skizze Java Klassen}
 
+Es handelt sich hierbei lediglich um die Objekt Klassen.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=320px]{img/Skizze_Java_1.png}
@@ -300,6 +302,10 @@ Googles neuestes Framework für Augmented Reality Anwendungen heist "AR Core". I
 
 Für Produkte, welche in einem lokalen Geschäft angeboten werden, wird meistens ein numerischer Barcode verwendet, da dieser leicht an der Kasse über das Band gezogen und gescannt werden kann um so erfasst zu werden.
 
+\subsubsection{Wieso kein Scanner, welcher das Produkt anhand der Form erkennt?}
+
+Es ist sehr aufwendig eine KI zu entwickeln, oder anzulernen, welche Produkte anhand Ihrer Form erkennen kann. Selbst dann ist diese sehr fehleranfällig und unausgereift. Der Barcode Scanner ist in diesem Fall wesentlich zuverlässiger darin Produkte zu erkennen wie der KI-Scanner. Daher wird das Konzept in der Implementation der App nicht weiter verfolgt.
+
 \subsubsection{Wieso eine MySQL Datenbank?}
 
 Zum einen war die MySQL Datenbank ebenfalls schon auf dem Backend Server aufgesetzt, somit war keine weitere Konfiguration notwendig. Weiterhin ist es sehr einfach eine Datenbank mit SQL zu erstellen und Abfragen durchzuführen.
@@ -316,7 +322,7 @@ Die Rest API ist die Schnittstelle zwischen der App und der Datenbank auf dem Se
 
 \paragraph{Alternative Datenbankmodelle}.\newline
 
-\noindent PostgreSQL und MongoDB.
+\noindent PostgreSQL und MongoDB. MongoDB ist dokumentenorientiert und speichert Datensätze im JSON Format ab. PostgreSQL ist MySQL sehr ähnlich.
 
 \newpage
 
@@ -1797,6 +1803,8 @@ Zum Testen der App wurden einige Produkte im Ikea eingescannt und Fotos sowie Pr
 
 \noindent Die App kann dahingehend erweitert werden, dass AR Modelle während der Laufzeit aus dem Internet geladen und direkt in der Welt platziert werden können. Aktuell ist hierbei die Ladezeit / Latenz ein großes Problem, die das Modell zum herunterladen benötigt, weshalb das Feature nicht mehr rechtzeitig in die fertige App übernommen werden konnte. \newline 
 
+\noindent Es kann eine ScanActivity oder ein ScanFragment entwickelt werden, welches mithilfe künstlicher Intelligenz Produkte an ihrer Form erkennt. \newline 
+
 \noindent Für Verkäufer könnte ein Webinterface implementiert werden, auf welchen eine Liste an Produkten im csv Format hochgeladen werden kann. Eine weitere Fuktion des Webinterfaces wäre das Hochladen von 3D Modelle für die einzelnen Produkte. \newline
 
 \noindent Eine wichtige Erweiterung für die App könnte das Erstellen von einzelnen Einkaufslisten sein, in die mehrere Produkte gespeichert werden können. \newline 
@@ -1823,16 +1831,16 @@ Zum Testen der App wurden einige Produkte im Ikea eingescannt und Fotos sowie Pr
 
 
 %\section{Wirtschaftlichkeitsbetrachtung}
-
+% wurde ausgelassen
 %\newpage
 
-\section{Fazit}
+\section{Fazit und Reflexion}
 
 \noindent Die Verwendung eines Frameworks (zum Beispiel Springboot) für die Erstellung der Rest Api, welche die benötigten Methoden bereits mitliefert, hätte einiges an Zeit und Arbeit einsparen können. \newline 
 
 \noindent Beim Erstellen der App hätte man von Anfang an mit Test-Driven-Development arbeiten können, da man so eine größere Sicherheit reinbringen hätte können und man Fehler einfacher lokalisieren könnte, was erheblich Zeit einsparen könnte. \newline 
 
-\noindent Letztendlich lebt die App von den Nutzern, was ein weiteres Problem darstellt: \newline Welcher Käufer nutzt die App, wenn kaum Content / Produkte vorhanden sind? Im Gegensatz dazu: Welcher Käufer möchte Produkte in der App anbieten, wenn keine solide Nutzerbasis vorhanden ist? Hier muss relativ früh ein Ausgleich geschaffen werden. 
+\noindent Letztendlich lebt die App von den Nutzern, was ein weiteres Problem darstellt: \newline Welcher Käufer nutzt die App, wenn kaum Content / Produkte vorhanden sind? Im Gegensatz dazu: Welcher Verkäufer möchte Produkte in der App anbieten, wenn keine solide Nutzerbasis vorhanden ist? Hier muss relativ früh ein Ausgleich geschaffen werden. 
 
 \noindent Der Beta Test hat dies ebenfalls noch einmal bestätigt. Nutzer sind hier selbst verantwortlich um Produkte in die App einzustellen. \newline 
 
@@ -1856,7 +1864,9 @@ Zum Testen der App wurden einige Produkte im Ikea eingescannt und Fotos sowie Pr
 
 \noindent Android SDK \newline
 \noindent Android Emulator \newline
+
 \noindent Android 9.0 (Testen) \newline 
+\noindent Link: \textit{\url{https://www.android.com/versions/pie-9-0/} \newline}
 
 \noindent Java 8 (Entwicklung und Veröffentlichung)
 
